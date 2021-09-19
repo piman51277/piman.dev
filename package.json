@@ -1,0 +1,29 @@
+{
+  "name": "piman-dev-site",
+  "version": "0.0.1",
+  "description": "Website for piman.dev",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piman51277/piman-dev-site.git"
+  },
+  "author": "piman51277",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/piman51277/piman-dev-site/issues"
+  },
+  "homepage": "https://github.com/piman51277/piman-dev-site#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
+    "handlebars": "^4.7.7"
+  },
+  "devDependencies": {
+    "@types/node": "^16.9.4",
+    "eslint": "^7.32.0",
+    "typescript": "^4.4.3"
+  }
+}
