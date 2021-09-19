@@ -8,6 +8,8 @@ app.engine('handlebars', handlebars({
     partialsDir: './partials'
 }));
 
+//public assets
+app.use('/assets',express.static('public'));
 
 //projects
 import ProjectRouter from './projects/router';
