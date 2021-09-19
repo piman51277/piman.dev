@@ -1,0 +1,5 @@
+{
+	"title": "Bezier",
+	"description": "A animation tool to explore bezier curves",
+	"main": "index.html"
+}
