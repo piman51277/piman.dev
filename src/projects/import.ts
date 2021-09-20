@@ -16,11 +16,9 @@ for (const directory of directories) {
 			continue;
 		}
 
-		projects[directory] = {
-			...projectCnfg
-		};
+		projects[directory] = projectCnfg;
 	}
-	catch (e) { 
+	catch (e) {
 		console.error(`Cannot import project at /projects/${directory}! Error: ${e}`);
 	}
 }

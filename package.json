@@ -4,11 +4,11 @@
   "description": "Website for piman.dev",
   "main": "dist/index.js",
   "scripts": {
-    "build:tsc":"rm -r dist && tsc",
+    "build:tsc": "tsc",
     "build:css": "postcss public/css/tailwind.css -o public/css/style.css",
-    "build":"npm run build:tsc && npm run build:css",
-    "run":"node dist/index.js",
-    "start":"npm run build && npm run run"
+    "build": "tsc && npm run build:css",
+    "run": "node dist/index.js",
+    "start": "tsc && postcss public/css/tailwind.css -o public/css/style.css && node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "@types/node": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
+    "autoprefixer": "^10.3.4",
     "eslint": "^7.32.0",
     "typescript": "^4.4.3"
   }

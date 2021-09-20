@@ -1,5 +1,6 @@
 {
 	"title": "Bezier",
-	"description": "A animation tool to explore bezier curves",
-	"main": "index.html"
+	"description": "An animated tool to explore Bezier curves",
+	"main": "index.html",
+	"created": "09/16/2021"
 }

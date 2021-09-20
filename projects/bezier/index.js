@@ -10,7 +10,7 @@ $(document).ready(() => {
     runSimulation([[400, 0], [0, 200], [300, 0], [200, 0]], true);
 
     $("#startSim").click(() => {
-        $("#startSim").prop('disabled', true);
+        $("#startSim").prop('disabled', true).text("Running...");
         const controlPoints = [
             [parseFloat($("#px0").val()), parseFloat($("#py0").val())],
             [parseFloat($("#px1").val()), parseFloat($("#py1").val())],
@@ -18,7 +18,7 @@ $(document).ready(() => {
             [parseFloat($("#px3").val()), parseFloat($("#py3").val())],
         ];
         runSimulation(controlPoints).then(() => {
-            $("#startSim").prop('disabled', false);
+            $("#startSim").prop('disabled', false).text("Run");
         });
     });
 
