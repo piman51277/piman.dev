@@ -6,7 +6,9 @@
   "scripts": {
     "build:tsc":"rm -r dist && tsc",
     "build:css": "postcss public/css/tailwind.css -o public/css/style.css",
-    "build":"npm run build:tsc && npm run build:css"
+    "build":"npm run build:tsc && npm run build:css",
+    "run":"node dist/index.js",
+    "start":"npm run build && npm run run"
   },
   "repository": {
     "type": "git",
