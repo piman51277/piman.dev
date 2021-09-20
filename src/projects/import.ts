@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { ProjectConfig } from './ProjectConfig'
+import { ProjectConfig } from './ProjectConfig';
 
 const projects: { [name: string]: ProjectConfig } = {};
 
@@ -20,7 +20,9 @@ for (const directory of directories) {
 			...projectCnfg
 		};
 	}
-	catch (e) { }
+	catch (e) { 
+		console.error(`Cannot import project at /projects/${directory}! Error: ${e}`);
+	}
 }
 
 export const projectIndex = projects;

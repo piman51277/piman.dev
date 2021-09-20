@@ -15,14 +15,14 @@ for (const project in projectIndex) {
 
 //change projectIndex to array form
 const projects = Object.keys(projectIndex).map(project => {
-	return { ...projectIndex[project], name: project }
+	return { ...projectIndex[project], name: project };
 });
 
 router.get('/', (req, res) => {
 	res.render('projectIndex', {
 		layout: 'main',
 		projects
-	})
-})
+	});
+});
 
 export default router;

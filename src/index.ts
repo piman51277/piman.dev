@@ -16,5 +16,5 @@ import ProjectRouter from './projects/router';
 app.use('/projects', ProjectRouter);
 app.use('/assets/projects', express.static('projects'));
 
-app.listen(3000)
+app.listen(3000);
 
