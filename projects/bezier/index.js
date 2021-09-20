@@ -1,3 +1,4 @@
+/* eslint-disable */
 let canvas;
 let ctx;
 
@@ -7,7 +8,7 @@ $(document).ready(() => {
     canvas.width = 660;
     canvas.height = 500;
 
-    runSimulation([[4, 0], [0, 2], [3, 0], [2, 0]], {resolution:200,speed:1},true);
+    runSimulation([[4, 0], [0, 2], [3, 0], [2, 0]], { resolution: 200, speed: 1 }, true);
 
     $("#startSim").click(() => {
         $("#startSim").prop('disabled', true).text("Running...");
@@ -18,17 +19,17 @@ $(document).ready(() => {
             [parseFloat($("#px3").val()), parseFloat($("#py3").val())],
         ];
         const resolution = parseInt($("#res").val());
-        const speed = (100-parseFloat($("#speed").val()))/100;
-        runSimulation(controlPoints,{resolution,speed}).then(() => {
+        const speed = (100 - Math.min(100,Math.max(parseFloat($("#speed").val()),0))) / 100;
+        runSimulation(controlPoints, { resolution, speed }).then(() => {
             $("#startSim").prop('disabled', false).text("Run");
         });
     });
 
 });
 
-async function runSimulation(controlPoints, options,instant = false) {
+async function runSimulation(controlPoints, options, instant = false) {
 
-    const {resolution, speed} = options;
+    const { resolution, speed } = options;
 
     //draw a white background
     ctx.fillStyle = '#fff';

@@ -1,3 +1,4 @@
+/* eslint-disable */
 //points: [[x,y],[x,y],[x,y]...]
 class Graph {
     constructor(x, y, width, height, points, options = {}) {
@@ -25,6 +26,7 @@ class Graph {
         //where we should draw axes
         this.drawAxes = options.drawAxes || false;
     }
+
     //compute the real coordinates on the graph
     getRealCoords(x, y) {
         const real_x = (x - this.x_min) * this.x_scale + this.x;
@@ -32,6 +34,7 @@ class Graph {
 
         return [real_x, real_y];
     }
+
     //sees if the coordinates are inside the graph
     isInside(x, y) {
         const [real_x, real_y] = this.getRealCoords(x, y);
@@ -94,10 +97,12 @@ class Graph {
             ctx.fillRect(x - 3, y - 3, 6, 6);
         }
     }
+
     //displays all of the graph points
     display() {
         this.draw(this.points.length);
     }
+
     //steps forwards the animation
     step() {
         if (this.progress >= this.points.length) {
