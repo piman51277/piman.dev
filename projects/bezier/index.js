@@ -7,24 +7,28 @@ $(document).ready(() => {
     canvas.width = 660;
     canvas.height = 500;
 
-    runSimulation([[400,0],[0,200],[300,0],[200,0]],true)
+    runSimulation([[400, 0], [0, 200], [300, 0], [200, 0]], true);
 
-    $("#startSim").click(()=>{
+    $("#startSim").click(() => {
         $("#startSim").prop('disabled', true);
         const controlPoints = [
             [parseFloat($("#px0").val()), parseFloat($("#py0").val())],
             [parseFloat($("#px1").val()), parseFloat($("#py1").val())],
             [parseFloat($("#px2").val()), parseFloat($("#py2").val())],
             [parseFloat($("#px3").val()), parseFloat($("#py3").val())],
-        ]
-        runSimulation(controlPoints).then(()=>{
+        ];
+        runSimulation(controlPoints).then(() => {
             $("#startSim").prop('disabled', false);
-        })
-    })
+        });
+    });
 
-})
+});
 
-async function runSimulation(controlPoints,instant=false){
+async function runSimulation(controlPoints, instant = false) {
+
+    //draw a white background
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     const [[x0, y0], [x1, y1], [x2, y2], [x3, y3]] = controlPoints;
 
@@ -64,48 +68,49 @@ async function runSimulation(controlPoints,instant=false){
 
     //create plot of x-prime
     ctx.fillText('x\'', 120, 255);
-    const xPrimePlot = new Graph(20, 260, 200, 100, xPrimeData,{drawAxes: true});
+    const xPrimePlot = new Graph(20, 260, 200, 100, xPrimeData, { drawAxes: true });
 
     //create plot of y-prime
     ctx.fillText('y\'', 120, 375);
-    const yPrimePlot = new Graph(20, 380, 200, 100, yPrimeData,{drawAxes: true});
+    const yPrimePlot = new Graph(20, 380, 200, 100, yPrimeData, { drawAxes: true });
 
     //create plot of derivative
     ctx.fillText('Derivative', 440, 255);
-    const tangentLine = new Graph(240, 260, 400, 220, data_prime,{drawAxes: true});
+    const tangentLine = new Graph(240, 260, 400, 220, data_prime, { drawAxes: true });
 
 
-    const step = ()=>{
-        xPlot.step()
-        yPlot.step()
-        bezierPlot.step()
-        xPrimePlot.step()
-        yPrimePlot.step()
-        tangentLine.step()
-    }
+    const step = () => {
+        xPlot.step();
+        yPlot.step();
+        bezierPlot.step();
+        xPrimePlot.step();
+        yPrimePlot.step();
+        tangentLine.step();
+    };
 
-    const display = ()=>{
-        xPlot.display()
-        yPlot.display()
-        bezierPlot.display()
-        xPrimePlot.display()
-        yPrimePlot.display()
-        tangentLine.display()
-    }
-    
-    if(instant){
+    const display = () => {
+        xPlot.display();
+        yPlot.display();
+        bezierPlot.display();
+        xPrimePlot.display();
+        yPrimePlot.display();
+        tangentLine.display();
+    };
+
+    if (instant) {
         display();
         return;
     }
 
-    return new Promise((resolve)=>{
+    return new Promise((resolve) => {
         const animationInterval = setInterval(() => {
+
             step();
-            if(xPlot.done && yPlot.done && bezierPlot.done && xPrimePlot.done && yPrimePlot.done && tangentLine.done){
+            if (xPlot.done && yPlot.done && bezierPlot.done && xPrimePlot.done && yPrimePlot.done && tangentLine.done) {
                 clearInterval(animationInterval);
                 display();
                 resolve();
             }
         }, 25);
-    })
+    });
 }
