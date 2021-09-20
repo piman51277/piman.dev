@@ -1,26 +1,17 @@
 <script src="beizer.js"></script>
 <script src="graph.js"></script>
 <script src="index.js"></script>
-<canvas width="1000" height="1000" id="display"></canvas>
-<div id="controls" class="controlBox">
-    <label>P0 </label><input type="number" id="px0" value="0" />,<input type="number" id="py0" value="0" /><br>
-    <label>P1 </label><input type="number" id="px1" value="0" />,<input type="number" id="py1" value="0" /><br>
-    <label>P2 </label><input type="number" id="px2" value="0" />,<input type="number" id="py2" value="0" /><br>
-    <label>P3 </label><input type="number" id="px3" value="0" />,<input type="number" id="py3" value="0" /><br>
-    <button id="startSim">Run</button>
+<div class="m-auto font-bold">
+    <div class="bg-white rounded-lg m-1">
+        <h3 class="text-center text-2xl">Simulation</h3>
+        <canvas width="1000" height="1000" id="display"></canvas>
+    </div>
+    <div id="controls" class="block bg-white rounded-lg m-1">
+        <h3 class="text-center text-2xl">Controls</h3>
+        <label>P0 </label><input type="number" id="px0" value="0" />,<input type="number" id="py0" value="0" /><br>
+        <label>P1 </label><input type="number" id="px1" value="0" />,<input type="number" id="py1" value="0" /><br>
+        <label>P2 </label><input type="number" id="px2" value="0" />,<input type="number" id="py2" value="0" /><br>
+        <label>P3 </label><input type="number" id="px3" value="0" />,<input type="number" id="py3" value="0" /><br>
+        <button id="startSim" class="bg-green-400 disabled:bg-red-400 rounded p-1 m-1">Run</button>
+    </div>
 </div>
-<style>
-    #display {
-        border: 1px solid black;
-    }
-
-    #controls {
-        border: 1px solid black;
-        padding: 5px;
-        width: 130px;
-    }
-
-    .controlBox input {
-        width: 50px;
-    }
-</style>
