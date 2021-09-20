@@ -7,7 +7,7 @@ $(document).ready(() => {
     canvas.width = 660;
     canvas.height = 500;
 
-    runSimulation([[400, 0], [0, 200], [300, 0], [200, 0]], true);
+    runSimulation([[4, 0], [0, 2], [3, 0], [2, 0]], {resolution:200,speed:1},true);
 
     $("#startSim").click(() => {
         $("#startSim").prop('disabled', true).text("Running...");
@@ -17,14 +17,18 @@ $(document).ready(() => {
             [parseFloat($("#px2").val()), parseFloat($("#py2").val())],
             [parseFloat($("#px3").val()), parseFloat($("#py3").val())],
         ];
-        runSimulation(controlPoints).then(() => {
+        const resolution = parseInt($("#res").val());
+        const speed = (100-parseFloat($("#speed").val()))/100;
+        runSimulation(controlPoints,{resolution,speed}).then(() => {
             $("#startSim").prop('disabled', false).text("Run");
         });
     });
 
 });
 
-async function runSimulation(controlPoints, instant = false) {
+async function runSimulation(controlPoints, options,instant = false) {
+
+    const {resolution, speed} = options;
 
     //draw a white background
     ctx.fillStyle = '#fff';
@@ -32,9 +36,9 @@ async function runSimulation(controlPoints, instant = false) {
 
     const [[x0, y0], [x1, y1], [x2, y2], [x3, y3]] = controlPoints;
 
-    const data = BezierCurve.cubic(x0, y0, x1, y1, x2, y2, x3, y3, 200);
+    const data = BezierCurve.cubic(x0, y0, x1, y1, x2, y2, x3, y3, resolution);
 
-    const data_prime = BezierCurve.cubic_prime(x0, y0, x1, y1, x2, y2, x3, y3, 200);
+    const data_prime = BezierCurve.cubic_prime(x0, y0, x1, y1, x2, y2, x3, y3, resolution);
 
     //generate data for x-plot
     const xData = data.map((point, i) => [i, point[0]]);
@@ -111,6 +115,6 @@ async function runSimulation(controlPoints, instant = false) {
                 display();
                 resolve();
             }
-        }, 25);
+        }, 25 * speed);
     });
 }
