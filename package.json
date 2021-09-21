@@ -25,6 +25,7 @@
   "homepage": "https://github.com/piman51277/piman.dev#readme",
   "dependencies": {
     "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
     "handlebars": "^4.7.7",

@@ -1,3 +1,8 @@
+//dotenv
+import dotenv from 'dotenv';
+dotenv.config();
+
+//server
 import express from 'express';
 import handlebars from 'express-handlebars';
 
@@ -20,4 +25,15 @@ app.use('/assets/projects', express.static('projects'));
 import HomeRouter from './routes/home';
 app.use('/', HomeRouter);
 
-app.listen(80);
+//https
+import https from 'https';
+import fs from 'fs';
+const path = process.env.KEY_PATH || './cert';
+
+const options = {
+    key: fs.readFileSync(path + '/key.pem'),
+    cert: fs.readFileSync(path + '/cert.pem'),
+    ca: fs.readFileSync(path + '/chain.pem')
+};
+
+https.createServer(options, app).listen(process.env.PORT || 443);
