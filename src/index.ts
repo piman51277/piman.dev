@@ -16,5 +16,9 @@ import ProjectRouter from './projects/router';
 app.use('/projects', ProjectRouter);
 app.use('/assets/projects', express.static('projects'));
 
+//homepage
+import HomeRouter from './routes/home';
+app.use('/', HomeRouter);
+
 app.listen(3000);
 
