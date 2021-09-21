@@ -8,7 +8,10 @@
     "build:css": "postcss public/css/tailwind.css -o public/css/style.css",
     "build": "tsc && npm run build:css",
     "run": "node dist/index.js",
-    "start": "npm run build && npm run run"
+    "start": "npm run build && npm run run",
+    "build-prod:css": "cross-env NODE_ENV=production postcss public/css/tailwind.css -o public/css/style.css",
+    "build-prod": "tsc && npm run build-prod:css",
+    "prod": "npm i && npm run build-prod && npm run run"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,7 @@
   },
   "homepage": "https://github.com/piman51277/piman.dev#readme",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
     "handlebars": "^4.7.7",
