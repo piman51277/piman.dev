@@ -20,5 +20,4 @@ app.use('/assets/projects', express.static('projects'));
 import HomeRouter from './routes/home';
 app.use('/', HomeRouter);
 
-app.listen(3000);
-
+app.listen(80);
