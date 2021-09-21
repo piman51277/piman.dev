@@ -31,7 +31,7 @@ import fs from 'fs';
 const path = process.env.KEY_PATH || './cert';
 
 const options = {
-    key: fs.readFileSync(path + '/key.pem'),
+    key: fs.readFileSync(path + '/privkey.pem'),
     cert: fs.readFileSync(path + '/cert.pem'),
     ca: fs.readFileSync(path + '/chain.pem')
 };
