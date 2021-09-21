@@ -41,4 +41,10 @@ router.get('/', (req, res) => {
 	});
 });
 
+//random project
+router.get('/random', (req, res) => {
+	const project = projects[Math.floor(Math.random() * projects.length)];
+	res.redirect(`/projects/${project.name}`);
+});
+
 export default router;

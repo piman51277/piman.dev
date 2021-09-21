@@ -16,6 +16,12 @@ for (const directory of directories) {
 			continue;
 		}
 
+		//check if name is random
+		if (projectCnfg.title === 'random' || directory === 'random') {
+			console.error(`Cannot import project at /projects/${directory}! 'random' is a reserved name!`);
+			continue;
+		}
+
 		projects[directory] = projectCnfg;
 	}
 	catch (e) {
