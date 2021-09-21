@@ -3,7 +3,7 @@
 @tailwind utilities; 
 
 .navbar-link{
-    @apply bg-green-500 rounded-lg p-2 mx-1 text-gray-900 font-bold hover:bg-green-400 hover:text-white;
+    @apply bg-green-500 rounded-lg p-2 mx-1 text-gray-900 font-bold hover:bg-green-400;
     font-family: Copperplate, Helvetica, sans-serif;
 }
 
