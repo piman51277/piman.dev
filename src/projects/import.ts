@@ -23,6 +23,8 @@ for (const directory of directories) {
 		}
 
 		projects[directory] = projectCnfg;
+
+		console.log(`Imported project at /projects/${directory}`);
 	}
 	catch (e) {
 		console.error(`Cannot import project at /projects/${directory}! Error: ${e}`);

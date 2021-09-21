@@ -32,3 +32,7 @@ input::-webkit-inner-spin-button {
     @apply text-4xl font-bold text-center my-4;
     @apply default-font
 }
+
+textarea{
+    resize: none;
+}
