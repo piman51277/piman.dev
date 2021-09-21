@@ -14,14 +14,30 @@ for (const project in projectIndex) {
 //create route for projects index
 
 //change projectIndex to array form
-const projects = Object.keys(projectIndex).map(project => {
+const projects = Object.keys(projectIndex).sort((a, b) => {
+	if (a < b) return -1;
+	if (a > b) return 1;
+	return 0;
+}).map(project => {
 	return { ...projectIndex[project], name: project };
 });
+
+//choose 6 projects to feature
+const featured = new Array(6).fill({});
+
+const selectionSet = projects.slice();
+for(let i =0;i<6;i++){
+	if(selectionSet.length === 0) break;
+	const index = Math.floor(Math.random() * selectionSet.length);
+	featured[i] = selectionSet[index];
+	selectionSet.splice(index, 1);
+}
 
 router.get('/', (req, res) => {
 	res.render('projectIndex', {
 		layout: 'main',
-		projects
+		projects,
+		featured
 	});
 });
 

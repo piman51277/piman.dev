@@ -19,7 +19,7 @@ $(document).ready(() => {
             [parseFloat($("#px3").val()), parseFloat($("#py3").val())],
         ];
         const resolution = parseInt($("#res").val());
-        const speed = (100 - Math.min(100,Math.max(parseFloat($("#speed").val()),0))) / 100;
+        const speed = Math.max(parseFloat($("#speed").val()),0) / 100;
         runSimulation(controlPoints, { resolution, speed }).then(() => {
             $("#startSim").prop('disabled', false).text("Run");
         });
@@ -116,6 +116,6 @@ async function runSimulation(controlPoints, options, instant = false) {
                 display();
                 resolve();
             }
-        }, 25 * speed);
+        }, 25 * (1/speed));
     });
 }
