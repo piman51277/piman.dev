@@ -36,4 +36,9 @@ const options = {
     ca: fs.readFileSync(path + '/chain.pem')
 };
 
-https.createServer(options, app).listen(process.env.PORT || 443);
+https.createServer(options, app).listen(process.env.HTTPS_PORT || 443);
+
+//http
+import http from 'http';
+
+http.createServer(app).listen(process.env.HTTP_PORT || 80);
