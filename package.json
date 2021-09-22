@@ -11,7 +11,7 @@
     "start": "npm run build && npm run run",
     "build-prod:css": "cross-env NODE_ENV=production postcss public/css/tailwind.css -o public/css/style.css",
     "build-prod": "tsc && npm run build-prod:css",
-    "prod": "npm i && npm run build-prod && npm run run"
+    "prod": "pm2 delete all && npm i && npm run build-prod && pm2 start dist/index.js"
   },
   "repository": {
     "type": "git",
