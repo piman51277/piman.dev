@@ -21,9 +21,9 @@ import ProjectRouter from './projects/router';
 app.use('/projects', ProjectRouter);
 app.use('/assets/projects', express.static('projects'));
 
-//homepage
-import HomeRouter from './routes/home';
-app.use('/', HomeRouter);
+//static routes
+import StaticRouter from './routes/static';
+app.use('/', StaticRouter);
 
 //https
 import https from 'https';

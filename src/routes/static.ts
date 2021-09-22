@@ -7,4 +7,10 @@ router.get('/', (req, res) => {
 	});
 });
 
+router.get('/about',(req,res)=>{
+	res.render('about',{
+		layout:'main'
+	});
+});
+
 export default router;
