@@ -36,3 +36,19 @@ input::-webkit-inner-spin-button {
 textarea{
     resize: none;
 }
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url('/assets/fonts/Poppins/Poppins-Extralight.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/assets/fonts/Poppins/Poppins-Bold.ttf');
+}
