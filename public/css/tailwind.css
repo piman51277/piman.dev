@@ -52,3 +52,7 @@ textarea{
     font-display: swap;
     src: url('/assets/fonts/Poppins/bold.ttf');
 }
+
+.link-pill{
+    @apply rounded-full m-2 p-1 font-bold default-font
+}
