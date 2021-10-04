@@ -56,3 +56,15 @@ textarea{
 .link-pill{
     @apply rounded-full m-2 p-1 font-bold default-font
 }
+
+.default-table th{
+    @apply border-2 border-black p-1 m-0;
+}
+
+mjx-container[display="true"] {
+    margin: .5em 0 ! important
+}
+
+.floating-info-box{
+    @apply bg-white rounded-lg w-min inline-block m-1
+}

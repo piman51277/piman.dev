@@ -1,4 +1,4 @@
-export type Dependancies = "jquery" | null;
+export type Dependancies = "jquery" | "mathjax" | null;
 
 export interface ProjectConfig {
 	title: string;
