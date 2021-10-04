@@ -1,4 +1,4 @@
-import { ProjectConfig } from './ProjectConfig';
+import { ProjectConfig} from './ProjectConfig';
 import fs from 'fs';
 import { Request, Response } from 'express';
 
@@ -13,12 +13,20 @@ export function renderProject(dirname: string, config: ProjectConfig): routeHand
 	//repath script tags within main file
 	const editedMainFile = mainFile.replace(/<script src="/g, `<script src="/assets/projects/${dirname}/`);
 
+	const dependencies= {};
+
+	//get dependancies
+	config.dependencies.forEach(dependancy => {
+		dependencies[dependancy] = true;
+	});
+
 	//return handler
 	return (req: Request, res: Response) => {
 		res.render('project', {
 			layout: 'main',
 			contents: editedMainFile,
-			project: config
+			project: config,
+			dependencies
 		});
 	};
 }

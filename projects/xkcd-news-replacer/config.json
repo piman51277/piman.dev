@@ -2,5 +2,6 @@
 	"title": "XKCD News Replacer",
 	"description": "Replaces text according to XKCD #1288, #1625 and #1679",
 	"main": "index.html",
-	"created": "09/21/2021"
+	"created": "09/21/2021",
+	"dependencies":["jquery"]
 }
