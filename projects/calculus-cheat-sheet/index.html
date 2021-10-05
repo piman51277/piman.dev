@@ -1,174 +1,176 @@
 <h1 class="section-title">Derivatives</h1>
-<div class="p-1">
-    <div class="floating-info-box">
-        <div class="bg-green-400 rounded-t-lg text-center">
-            <h1 class="text-xl font-bold ">General</h1>
+<div class="flex">
+    <div class="p-1 m-auto">
+        <div class="floating-info-box">
+            <div class="bg-green-400 rounded-t-lg text-center">
+                <h1 class="text-xl font-bold ">General</h1>
+            </div>
+            <div class="p-1 block">
+                <table class="default-table text-sm">
+                    <thead>
+                        <tr>
+                            <th>$$f(x)$$</th>
+                            <th>$$f'(x)$$</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>$$x^n$$</th>
+                            <th>$$nx^{n-1}$$</th>
+                        </tr>
+                        <tr>
+                            <th>$$f(g(x))$$</th>
+                            <th>$$f'(g(x))\cdot g'(x)$$</th>
+                        </tr>
+                        <tr>
+                            <th>$$\frac{f(x)}{g(x)}$$</th>
+                            <th>$$\frac{f'(x)g(x)+f(x)g'(x)}{g^2(x)}$$</th>
+                        </tr>
+                        <tr>
+                            <th>$$f(x)\cdot g(x)$$</th>
+                            <th>$$f'(x)g(x)-f(x)g'(x)$$</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="p-1 block">
-            <table class="default-table text-sm">
-                <thead>
-                    <tr>
-                        <th>$$f(x)$$</th>
-                        <th>$$f'(x)$$</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>$$x^n$$</th>
-                        <th>$$nx^{n-1}$$</th>
-                    </tr>
-                    <tr>
-                        <th>$$f(g(x))$$</th>
-                        <th>$$f'(g(x))\cdot g'(x)$$</th>
-                    </tr>
-                    <tr>
-                        <th>$$\frac{f(x)}{g(x)}$$</th>
-                        <th>$$\frac{f'(x)g(x)+f(x)g'(x)}{g^2(x)}$$</th>
-                    </tr>
-                    <tr>
-                        <th>$$f(x)\cdot g(x)$$</th>
-                        <th>$$f'(x)g(x)-f(x)g'(x)$$</th>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="floating-info-box">
+            <div class="bg-green-400 rounded-t-lg text-center">
+                <h1 class="text-xl font-bold ">Logarithmic</h1>
+            </div>
+            <div class="p-1 block">
+                <table class="default-table text-sm">
+                    <thead>
+                        <tr>
+                            <th>$$f(x)$$</th>
+                            <th>$$f'(x)$$</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>$$a^x$$</th>
+                            <th>$$ln(a)\cdot a^x$$</th>
+                        </tr>
+                        <tr>
+                            <th>$$\log_{a} x$$</th>
+                            <th>$$\frac{1}{x\cdot ln(a)} $$</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-    <div class="floating-info-box">
-        <div class="bg-green-400 rounded-t-lg text-center">
-            <h1 class="text-xl font-bold ">Logarithmic</h1>
+        <div class="floating-info-box">
+            <div class="bg-green-400 rounded-t-lg text-center">
+                <h1 class="text-xl font-bold ">Exponential</h1>
+            </div>
+            <div class="p-1 block">
+                <table class="default-table text-sm">
+                    <thead>
+                        <tr>
+                            <th>$$f(x)$$</th>
+                            <th>$$f'(x)$$</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>$$x^a$$</th>
+                            <th>$$ln(a)\cdot a^x$$</th>
+                        </tr>
+                        <tr>
+                            <th>$$ln(x)$$</th>
+                            <th>$$1/x$$</th>
+                        </tr>
+                        <tr>
+                            <th>$$e^x$$</th>
+                            <th>$$e^x$$</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="p-1 block">
-            <table class="default-table text-sm">
-                <thead>
-                    <tr>
-                        <th>$$f(x)$$</th>
-                        <th>$$f'(x)$$</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>$$a^x$$</th>
-                        <th>$$ln(a)\cdot a^x$$</th>
-                    </tr>
-                    <tr>
-                        <th>$$\log_{a} x$$</th>
-                        <th>$$\frac{1}{x\cdot ln(a)} $$</th>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="floating-info-box">
+            <div class="bg-green-400 rounded-t-lg text-center">
+                <h1 class="text-xl font-bold ">Trig</h1>
+            </div>
+            <div class="p-1 block">
+                <table class="default-table text-sm">
+                    <thead>
+                        <tr>
+                            <th>$$f(x)$$</th>
+                            <th>$$f'(x)$$</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>$$\sin(x)$$</th>
+                            <th>$$\cos(x)$$</th>
+                        </tr>
+                        <tr>
+                            <th>$$\cos(x)$$</th>
+                            <th>$$-\sin(x)$$</th>
+                        </tr>
+                        <tr>
+                            <th>$$\tan(x)$$</th>
+                            <th>$$\sec^2(x)$$</th>
+                        </tr>
+                        <tr>
+                            <th>$$\csc(x)$$</th>
+                            <th>$$-\csc(x)\cot(x)$$</th>
+                        </tr>
+                        <tr>
+                            <th>$$\sec(x)$$</th>
+                            <th>$$\sec(x)\tan(x)$$</th>
+                        </tr>
+                        <tr>
+                            <th>$$\cot(x)$$</th>
+                            <th>$$-\csc(x)\sec(x)$$</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-    <div class="floating-info-box">
-        <div class="bg-green-400 rounded-t-lg text-center">
-            <h1 class="text-xl font-bold ">Exponential</h1>
+        <div class="floating-info-box">
+            <div class="bg-green-400 rounded-t-lg text-center">
+                <h1 class="text-xl font-bold ">Inverse</h1>
+            </div>
+            <div class="p-1 block">
+                <table class="default-table text-sm">
+                    <thead>
+                        <tr>
+                            <th>$$f'(x) = \frac{1}{f^{-1}{'}(f(x))}$$</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
-        <div class="p-1 block">
-            <table class="default-table text-sm">
-                <thead>
-                    <tr>
-                        <th>$$f(x)$$</th>
-                        <th>$$f'(x)$$</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>$$x^a$$</th>
-                        <th>$$ln(a)\cdot a^x$$</th>
-                    </tr>
-                    <tr>
-                        <th>$$ln(x)$$</th>
-                        <th>$$1/x$$</th>
-                    </tr>
-                    <tr>
-                        <th>$$e^x$$</th>
-                        <th>$$e^x$$</th>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="floating-info-box">
-        <div class="bg-green-400 rounded-t-lg text-center">
-            <h1 class="text-xl font-bold ">Trig</h1>
-        </div>
-        <div class="p-1 block">
-            <table class="default-table text-sm">
-                <thead>
-                    <tr>
-                        <th>$$f(x)$$</th>
-                        <th>$$f'(x)$$</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>$$\sin(x)$$</th>
-                        <th>$$\cos(x)$$</th>
-                    </tr>
-                    <tr>
-                        <th>$$\cos(x)$$</th>
-                        <th>$$-\sin(x)$$</th>
-                    </tr>
-                    <tr>
-                        <th>$$\tan(x)$$</th>
-                        <th>$$\sec^2(x)$$</th>
-                    </tr>
-                    <tr>
-                        <th>$$\csc(x)$$</th>
-                        <th>$$-\csc(x)\cot(x)$$</th>
-                    </tr>
-                    <tr>
-                        <th>$$\sec(x)$$</th>
-                        <th>$$\sec(x)\tan(x)$$</th>
-                    </tr>
-                    <tr>
-                        <th>$$\cot(x)$$</th>
-                        <th>$$-\csc(x)\sec(x)$$</th>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="floating-info-box">
-        <div class="bg-green-400 rounded-t-lg text-center">
-            <h1 class="text-xl font-bold ">Inverse</h1>
-        </div>
-        <div class="p-1 block">
-            <table class="default-table text-sm">
-                <thead>
-                    <tr>
-                        <th>$$f'(x) = \frac{1}{f^{-1}{'}(f(x))}$$</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
-    </div>
-    <div class="floating-info-box">
-        <div class="bg-green-400 rounded-t-lg text-center">
-            <h1 class="text-xl font-bold ">Inverse Trig</h1>
-        </div>
-        <div class="p-1 block">
-            <table class="default-table text-sm">
-                <thead>
-                    <tr>
-                        <th>$$f(x)$$</th>
-                        <th>$$f'(x)$$</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>$$\sin(x)$$</th>
-                        <th>$$\frac{1}{\sqrt{1-x^2}}$$</th>
-                    </tr>
-                    <tr>
-                        <th>$$\cos(x)$$</th>
-                        <th>$$-\frac{1}{\sqrt{1-x^2}}$$</th>
-                    </tr>
-                    <tr>
-                        <th>$$\tan(x)$$</th>
-                        <th>$$\frac{1}{1+x^2}$$</th>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="floating-info-box">
+            <div class="bg-green-400 rounded-t-lg text-center">
+                <h1 class="text-xl font-bold ">Inverse Trig</h1>
+            </div>
+            <div class="p-1 block">
+                <table class="default-table text-sm">
+                    <thead>
+                        <tr>
+                            <th>$$f(x)$$</th>
+                            <th>$$f'(x)$$</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>$$\sin^{-1}(x)$$</th>
+                            <th>$$\frac{1}{\sqrt{1-x^2}}$$</th>
+                        </tr>
+                        <tr>
+                            <th>$$\cos^{-1}(x)$$</th>
+                            <th>$$-\frac{1}{\sqrt{1-x^2}}$$</th>
+                        </tr>
+                        <tr>
+                            <th>$$\tan^{-1}(x)$$</th>
+                            <th>$$\frac{1}{1+x^2}$$</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
