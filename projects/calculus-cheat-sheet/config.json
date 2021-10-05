@@ -3,5 +3,5 @@
 	"description": "A quick reference for BC calculus",
 	"main": "index.html",
 	"created": "10/4/2021",
-	"dependencies":["mathjax","jquery"]
+	"dependencies":["mathjax"]
 }
