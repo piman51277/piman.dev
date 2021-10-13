@@ -1,0 +1,7 @@
+{
+	"title": "Calculating π",
+	"description": "Exploring several ways to calculate π",
+	"main": "index.html",
+	"created": "10/13/2021",
+	"dependencies":["jquery","mathjax"]
+}
