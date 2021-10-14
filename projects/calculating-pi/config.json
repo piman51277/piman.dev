@@ -1,6 +1,6 @@
 {
 	"title": "Calculating π",
-	"description": "Exploring several ways to calculate π",
+	"description": "An exploration into methods of calculating π [WIP]",
 	"main": "index.html",
 	"created": "10/13/2021",
 	"dependencies":["jquery","mathjax"]

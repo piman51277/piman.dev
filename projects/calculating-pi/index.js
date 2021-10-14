@@ -65,8 +65,8 @@ class MonteCarlo {
     run() {
         window.requestAnimationFrame(() => {
             this.draw();
-            $(this.statsId).text(`${this.totals.inside} / ${(this.totals.outside + this.totals.inside)}`);
-            $(this.piOutputId).text(`${(this.totals.inside / (this.totals.outside + this.totals.inside)) * 4}`);
+            $(this.statsId).text(`n' = ${this.totals.inside} n = ${(this.totals.outside + this.totals.inside)}`);
+            $(this.piOutputId).text(`π ≈ ${(this.totals.inside / (this.totals.outside + this.totals.inside)) * 4}`);
             setTimeout(() => {
                 this.run();
             }, this.delay);
