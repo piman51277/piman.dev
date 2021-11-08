@@ -68,3 +68,7 @@ mjx-container[display="true"] {
 .floating-info-box{
     @apply bg-white rounded-lg w-min inline-block m-1
 }
+
+.metronome-button{
+    @apply w-40 h-40 bg-green-400 rounded-t-lg
+}

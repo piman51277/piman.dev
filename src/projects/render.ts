@@ -10,8 +10,8 @@ export function renderProject(dirname: string, config: ProjectConfig): routeHand
 	const mainPath = `./projects/${dirname}/${config.main}`;
 	const mainFile = fs.readFileSync(mainPath, 'utf8');
 
-	//repath script tags within main file
-	const editedMainFile = mainFile.replace(/<script src="/g, `<script src="/assets/projects/${dirname}/`);
+	//repath source files
+	const editedMainFile = mainFile.replace(/src="/g, `src="/assets/projects/${dirname}/`);
 
 	const dependencies= {};
 
