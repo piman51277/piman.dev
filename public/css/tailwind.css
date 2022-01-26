@@ -13,7 +13,7 @@
 
 .default-box{
     @apply bg-white rounded-lg m-1;
-    @apply default-font
+    @apply default-font text-center;
 }
 
 .num-input{
@@ -71,4 +71,17 @@ mjx-container[display="true"] {
 
 .metronome-button{
     @apply w-40 h-40 bg-green-400 rounded-t-lg
+}
+
+.monospace-text{
+    font-family: 'Courier', monospace;
+    @apply bg-gray-200 rounded-sm;
+}
+
+.monospace-text:hover{
+    @apply bg-gray-300 rounded-lg;
+}
+
+.link{
+    @apply text-black hover:text-green-900 underline;
 }
