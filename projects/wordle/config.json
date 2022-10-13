@@ -1,6 +1,6 @@
 {
 	"title": "Wordle",
-	"description": "A look into how wordle chooses words",
+	"description": "Dumped Wordle wordlists",
 	"main": "index.html",
 	"created": "1/26/2022",
 	"dependencies":["jquery"]
