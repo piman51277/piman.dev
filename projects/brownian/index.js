@@ -1,5 +1,5 @@
 (() => {
-  "use strict";
+  ("use strict");
   var t = {
       310: (t, e, i) => {
         Object.defineProperty(e, "__esModule", { value: !0 }),
@@ -108,7 +108,13 @@
             (a.height = 600),
             (n = a.getContext("2d"));
           for (var h = [], v = 0; v < t; v++) {
-            var u = new l.Particle(100, 100, { x: 0, y: 0 }, i, c);
+            var u = new l.Particle(
+              800 * Math.random(),
+              600 * Math.random(),
+              { x: 0, y: 0 },
+              i,
+              c
+            );
             u.changeVelocity(e, !0), h.push(u);
           }
           clearInterval(o);
