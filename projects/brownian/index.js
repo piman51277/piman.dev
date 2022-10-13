@@ -28,7 +28,7 @@
               }),
               (t.prototype.changeVelocity = function (t, e) {
                 void 0 === e && (e = !1);
-                var i = (this.size / 150) * (t / 100);
+                var i = (this.size / 60) * (t / 200 + 0.5);
                 if (!(Math.random() > i) || e) {
                   var a = 5 / this.mass + 0.05 * t;
                   (this.velocity.x = (0, r.randomNormal)(a)),
