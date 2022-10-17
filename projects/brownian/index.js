@@ -97,52 +97,86 @@
         var a,
           n,
           o,
-          l = i(310),
-          s = i(49);
-        function c() {
-          var t = parseInt($("#particles").val()),
-            e = parseInt($("#temperature").val()),
-            i = parseInt($("#size").val()),
-            c = parseInt($("#mass").val());
+          l,
+          s = i(310),
+          c = i(49);
+        function h(t) {
+          var e = t.temperature;
           ((a = document.getElementById("display")).width = 800),
             (a.height = 600),
             (n = a.getContext("2d"));
-          for (var h = [], v = 0; v < t; v++) {
-            var u = new l.Particle(
+          var i = t.particles,
+            r = [];
+          clearInterval(o);
+          var l = 0;
+          o = setInterval(function () {
+            n.clearRect(0, 0, a.width, a.height);
+            for (var t = 0; t < i.length; t++)
+              (o = i[t]).move(800, 600),
+                o.changeVelocity(e),
+                0 == t && r.push({ x: o.x, y: o.y });
+            for (
+              n.beginPath(), n.moveTo(r[0].x, r[0].y), t = 1;
+              t < r.length;
+              t++
+            )
+              n.lineTo(r[t].x, r[t].y);
+            for (
+              n.strokeStyle = "blue",
+                n.stroke(),
+                n.strokeStyle = "black",
+                t = 0;
+              t < i.length;
+              t++
+            ) {
+              var o = i[t];
+              (0, c.displayParticle)(n, o, 0 == t ? "blue" : "red");
+            }
+            (l += 20),
+              (n.fillStyle = "black"),
+              (n.font = "10px Arial"),
+              n.fillText((l / 1e3).toFixed(1) + " ps", 10, 30);
+          }, 20);
+        }
+        function u() {
+          for (
+            var t,
+              e,
+              i = parseInt($("#particles").val()),
+              o = parseInt($("#temperature").val()),
+              l = parseInt($("#size").val()),
+              h = parseInt($("#mass").val()),
+              u = [],
+              v = 0;
+            v < i;
+            v++
+          )
+            (p = new s.Particle(
               800 * Math.random(),
               600 * Math.random(),
               { x: 0, y: 0 },
-              i,
-              c
-            );
-            u.changeVelocity(e, !0), h.push(u);
-          }
-          clearInterval(o);
-          var y = 0;
-          o = setInterval(function () {
-            var t, i;
-            n.clearRect(0, 0, a.width, a.height);
-            try {
-              for (var o = r(h), l = o.next(); !l.done; l = o.next()) {
-                var c = l.value;
-                c.move(800, 600),
-                  c.changeVelocity(e),
-                  (0, s.displayParticle)(n, c, "red");
-              }
-            } catch (e) {
-              t = { error: e };
-            } finally {
-              try {
-                l && !l.done && (i = o.return) && i.call(o);
-              } finally {
-                if (t) throw t.error;
-              }
+              l,
+              h
+            )).changeVelocity(o, !0),
+              u.push(p);
+          ((a = document.getElementById("display")).width = 800),
+            (a.height = 600),
+            (n = a.getContext("2d"));
+          try {
+            for (var y = r(u), d = y.next(); !d.done; d = y.next()) {
+              var p = d.value;
+              (0, c.displayParticle)(n, p, "red");
             }
-            (y += 20),
-              (n.fillStyle = "black"),
-              (n.font = "10px Arial"),
-              n.fillText((y / 1e3).toFixed(1) + " ps", 10, 30);
-          }, 20);
+          } catch (e) {
+            t = { error: e };
+          } finally {
+            try {
+              d && !d.done && (e = y.return) && e.call(y);
+            } finally {
+              if (t) throw t.error;
+            }
+          }
+          return { particles: u, temperature: o };
         }
         $.when($.ready).then(function () {
           $("#particles").on("input", function () {
@@ -161,9 +195,12 @@
               var t = parseInt($("#mass").val());
               $("#massNum").text(t);
             }),
-            c(),
+            h((l = u())),
+            $("#applyConfig").on("click", function () {
+              clearInterval(o), n.clearRect(0, 0, a.width, a.height), (l = u());
+            }),
             $("#startSim").on("click", function () {
-              c();
+              h(l);
             });
         });
       },
