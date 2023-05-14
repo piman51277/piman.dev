@@ -1,7 +1,0 @@
-{
-	"title": "Bezier",
-	"description": "An animated tool to explore Bezier curves",
-	"main": "index.html",
-	"created": "09/16/2021",
-	"dependencies":["jquery"]
-}
