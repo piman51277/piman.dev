@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/assets/css/bundle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ project.name }}">
+    <meta name="keywords" content="piman,piman51277">
+    <meta name="og:type" content="website">
+    <meta name="og:title" content="piman.dev">
+    <meta name="og:description" content="{{ project.name }}">
+    <title>{{ project.name }}</title>
+  </head>
+  <body>
+    <h1 id="idv-proj-title">{{ project.name }}</h1>
+    <a id="idv-proj-return" href="/projects">back to projects -></a>
+    <div id="project-content">
+      {{content | safe}}
+    </div>
+  </body>
+</html>

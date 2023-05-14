@@ -1,44 +1,51 @@
+//start loading projects
+import "./projects/projects";
+
 //dotenv
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
 
-//server
-import express from 'express';
-import handlebars from 'express-handlebars';
+//setup express
+import express from "express";
 
 const app = express();
-app.set('view engine', 'handlebars');
-app.engine('handlebars', handlebars({
-    layoutsDir: './layouts',
-    partialsDir: './partials'
-}));
 
-//public assets
-app.use('/assets',express.static('public'));
+//setup template engine
+import nunjucks from "nunjucks";
+nunjucks.configure("views", {
+  autoescape: true,
+  express: app,
+});
+
+//add static assets
+const oneWeek = 604800000;
+app.use("/assets", express.static("assets", { maxAge: oneWeek }));
+app.use("/passets", express.static("host", { maxAge: oneWeek }));
+
+//add routes
+
+//static
+import { staticRoutes } from "./routes/static";
+app.use("/", staticRoutes);
 
 //projects
-import ProjectRouter from './projects/router';
-app.use('/projects', ProjectRouter);
-app.use('/assets/projects', express.static('projects'));
-
-//static routes
-import StaticRouter from './routes/static';
-app.use('/', StaticRouter);
+import { projectRoutes } from "./routes/projects";
+app.use("/projects", projectRoutes);
 
 //https
-import https from 'https';
-import fs from 'fs';
-const path = process.env.KEY_PATH || './cert';
+import https from "https";
+import fs from "fs";
+const path = process.env.KEY_PATH || "./cert";
 
 const options = {
-    key: fs.readFileSync(path + '/privkey.pem'),
-    cert: fs.readFileSync(path + '/cert.pem'),
-    ca: fs.readFileSync(path + '/chain.pem')
+  key: fs.readFileSync(path + "/privkey.pem"),
+  cert: fs.readFileSync(path + "/cert.pem"),
+  ca: fs.readFileSync(path + "/chain.pem"),
 };
 
 https.createServer(options, app).listen(process.env.HTTPS_PORT || 443);
 
 //http
-import http from 'http';
+import http from "http";
 
 http.createServer(app).listen(process.env.HTTP_PORT || 80);

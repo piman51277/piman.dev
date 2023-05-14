@@ -1,7 +1,0 @@
-{
-	"title": "Wordle",
-	"description": "Dumped Wordle wordlists",
-	"main": "index.html",
-	"created": "1/26/2022",
-	"dependencies":["jquery"]
-}

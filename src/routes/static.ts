@@ -1,16 +1,12 @@
-import express from 'express';
-const router = express.Router();
+import { projects } from "./../projects/projects";
+import { Router } from "express";
 
-router.get('/', (req, res) => {
-	res.render('home', {
-		layout: 'home'
-	});
+export const staticRoutes = Router();
+
+staticRoutes.get("/", (req, res) => {
+  res.render("home.njk");
 });
 
-router.get('/about',(req,res)=>{
-	res.render('about',{
-		layout:'main'
-	});
+staticRoutes.get("/projects", (req, res) => {
+  res.render("projects.njk", { projects });
 });
-
-export default router;

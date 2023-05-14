@@ -1,0 +1,96 @@
+#proj-title {
+  position: absolute;
+  width: 512px;
+  height: 134px;
+  left: calc(50% - 512px / 2);
+  top: 30px;
+  font-size: 128px;
+}
+
+#idv-proj-return {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 200px;
+  height: 40px;
+  color: #ffffff;
+}
+
+#proj-return {
+  position: absolute;
+  width: 327px;
+  height: 40px;
+  left: calc(50% - 327px / 2 - 0.5px);
+  top: 164px;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+#proj-container {
+  position: absolute;
+  width: 800px;
+  left: calc(50% - 800px / 2);
+  top: 237px;
+}
+
+.project-widget {
+  display: block;
+  position: relative;
+  width: 800px;
+  height: 130px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+
+  p {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    left: 0px;
+    top: 0px;
+    font-size: 24px;
+  }
+
+  h3 {
+    position: absolute;
+    height: 50px;
+    left: 0px;
+    right: 0px;
+    top: calc(50% - 50px / 2);
+    font-size: 48px;
+  }
+
+  img {
+    position: absolute;
+    width: 800px;
+    height: 130px;
+    right: 0px;
+    top: 0px;
+    border-radius: 20px;
+  }
+
+  .shader {
+    position: absolute;
+    width: 800px;
+    height: 130px;
+    right: 0px;
+    top: 0px;
+    border-radius: 20px;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+  }
+}
+
+#project-content {
+  margin: auto;
+  width: fit-content;
+  padding: 10px;
+  border: 2px solid #ffffff;
+}
+
+#idv-proj-title {
+  width: 100%;
+  font-size: 64px;
+}

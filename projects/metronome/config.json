@@ -1,7 +1,0 @@
-{
-	"title": "Metronome",
-	"description": "A simple metronome",
-	"main": "index.html",
-	"created": "11/8/2021",
-	"dependencies":["jquery"]
-}

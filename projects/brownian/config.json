@@ -1,7 +1,0 @@
-{
-  "title": "Brownian",
-  "description": "A simple brownian motion simulation",
-  "main": "index.html",
-  "created": "10/13/2022",
-  "dependencies": ["jquery"]
-}

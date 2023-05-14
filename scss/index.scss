@@ -1,0 +1,62 @@
+@use "partials/home";
+@use "partials/projects";
+
+@font-face {
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/Inconsolata.ttf") format("truetype");
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: black;
+  padding: 0;
+  margin: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+a {
+  margin: 0px;
+  padding: 0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: white;
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  align-items: center;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 10px;
+  color: white;
+  background-color: black;
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  align-items: center;
+  text-align: center;
+}
