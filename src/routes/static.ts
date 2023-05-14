@@ -10,3 +10,7 @@ staticRoutes.get("/", (req, res) => {
 staticRoutes.get("/projects", (req, res) => {
   res.render("projects.njk", { projects });
 });
+
+staticRoutes.get("/misc", (req, res) => {
+  res.render("misc.njk");
+});
