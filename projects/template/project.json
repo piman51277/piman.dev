@@ -1,8 +1,0 @@
-{
-  "name": "template project",
-  "year": "2018",
-  "previewimg": "img.png",
-  "main": "index.html",
-  "src": ["index.js", "index.css"],
-  "assets": ["asset.png"]
-}
