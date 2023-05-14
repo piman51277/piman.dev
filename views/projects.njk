@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/assets/css/bundle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="piman's projects">
+    <meta name="keywords" content="piman,piman51277">
+    <meta name="og:type" content="website">
+    <meta name="og:title" content="piman.dev">
+    <meta name="og:description" content="piman's projects">
+    <title>projects</title>
+  </head>
+  <body>
+    <h1 id="proj-title">projects</h1>
+    <a id="proj-return" href="/">back home -></a>
+    <div id="proj-container">
+      {% for project in projects %}
+        {% include "partials/project-widget.njk" %}
+      {% endfor %}
+    </div>
+  </body>
+</html>

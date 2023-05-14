@@ -13,7 +13,7 @@ export function rewriteProjectMain(
 
   //replace the imports
   for (const [oldFile, newFile] of replacements) {
-    file = file.replace(oldFile, newFile);
+    file = file.replace(oldFile, "/passets/"+newFile);
   }
 
   //write the file

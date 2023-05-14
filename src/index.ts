@@ -20,13 +20,17 @@ nunjucks.configure("views", {
 //add static assets
 const oneWeek = 604800000;
 app.use("/assets", express.static("assets", { maxAge: oneWeek }));
-app.use("/host", express.static("host", { maxAge: oneWeek }));
+app.use("/passets", express.static("host", { maxAge: oneWeek }));
 
 //add routes
 
 //static
 import { staticRoutes } from "./routes/static";
 app.use("/", staticRoutes);
+
+//projects
+import { projectRoutes } from "./routes/projects";
+app.use("/projects", projectRoutes);
 
 //https
 import https from "https";

@@ -8,7 +8,7 @@
     "build-tsc": "tsc",
     "build": "npm run build-css && npm run build-tsc",
     "start": "node dist/index.js",
-    "dev": "npm run build-css && npm run start",
+    "dev": "npm run build-css && tsc && npm run start",
     "watch": "nodemon --delay 2"
   },
   "repository": {

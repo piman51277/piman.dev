@@ -1,4 +1,5 @@
 @use "partials/home";
+@use "partials/projects";
 
 @font-face {
   font-family: "Inconsolata";
@@ -33,6 +34,11 @@ a {
   -ms-user-select: none;
   user-select: none;
   color: white;
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  align-items: center;
+  text-align: center;
 }
 
 a {
