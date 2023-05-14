@@ -12,12 +12,6 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "semi": ["warn", "always"],
-    "lines-around-comment": [
-      "error",
-      {
-        "beforeLineComment": true
-      }
-    ]
+    "semi": ["warn", "always"]
   }
 }
