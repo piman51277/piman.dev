@@ -1,0 +1,43 @@
+#center-box {
+  position: absolute;
+  width: 300px;
+  height: 420px;
+  left: calc(50% - 300px / 2);
+  top: calc(50% - 420px / 2 + 7.5px);
+
+  p {
+    width: 300px;
+    height: 27px;
+    display: block;
+    font-family: "Inconsolata";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  img {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+  }
+
+  #link-container {
+    color: white;
+    display: flex;
+
+    a {
+      flex: 1;
+      display: inline-block;
+      height: 18px;
+      font-family: "Inconsolata";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      align-items: center;
+      text-align: center;
+    }
+  }
+}
