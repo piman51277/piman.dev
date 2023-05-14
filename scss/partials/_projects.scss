@@ -7,6 +7,12 @@
   font-size: 128px;
 }
 
+#idv-proj-return {
+  width: 327px;
+  height: 40px;
+  color: #ffffff;
+}
+
 #proj-return {
   position: absolute;
   width: 327px;
@@ -72,4 +78,11 @@
       rgba(0, 0, 0, 0.8) 100%
     );
   }
+}
+
+#project-content {
+  margin: auto;
+  width: fit-content;
+  padding: 10px;
+  border: 2px solid #ffffff;
 }
