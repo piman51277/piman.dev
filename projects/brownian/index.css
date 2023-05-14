@@ -1,0 +1,20 @@
+#display {
+  width: 800px;
+  height: 600px;
+  background-color: white;
+}
+
+#pj-control-grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto auto;
+}
+#pj-control-grid p,
+#pj-control-grid input {
+  display: inline-grid;
+}
+
+#applyConfig {
+  width: 800px;
+  margin: auto;
+}

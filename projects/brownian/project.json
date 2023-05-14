@@ -1,0 +1,8 @@
+{
+  "name": "brownian",
+  "year": "2022",
+  "previewimg": "banner.png",
+  "main": "index.html",
+  "src": ["bundle.js", "index.css"],
+  "assets": []
+}
