@@ -45,3 +45,18 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 10px;
+  color: white;
+  background-color: black;
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  align-items: center;
+  text-align: center;
+}

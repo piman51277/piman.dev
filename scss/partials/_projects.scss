@@ -8,7 +8,10 @@
 }
 
 #idv-proj-return {
-  width: 327px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 200px;
   height: 40px;
   color: #ffffff;
 }
@@ -85,4 +88,9 @@
   width: fit-content;
   padding: 10px;
   border: 2px solid #ffffff;
+}
+
+#idv-proj-title {
+  width: 100%;
+  font-size: 64px;
 }
