@@ -13,5 +13,6 @@
   "plugins": ["@typescript-eslint"],
   "rules": {
     "semi": ["warn", "always"]
-  }
+  },
+  "ignorePatterns": ["node_modules/", "dist/", "projects/"]
 }
