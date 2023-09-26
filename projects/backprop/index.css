@@ -39,6 +39,13 @@ table {
   box-sizing: border-box;
 }
 
+thead,
+tbody {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0px;
+}
+
 #nns-frame {
   width: 600px;
   height: 460px;
@@ -89,14 +96,13 @@ table {
 
 #epoch-error-display table {
   width: 240px;
-  height: 72px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 #epoch-error-display thead,
 #epoch-error-display tbody {
   display: inline-block;
-  box-sizing: border-box;
+  box-sizing: content-box;
   width: 238px;
   height: 36px;
 }
@@ -114,8 +120,6 @@ table {
 
 #model-results-display p {
   width: 240px;
-  height: 24px;
-  font-size: 24px;
 }
 
 #model-results-display table {
@@ -145,13 +149,10 @@ table {
 #sim-control-title {
   width: 240px;
   height: 24px;
-  font-size: 24px;
 }
 
 #sim-control-subheading {
   width: 240px;
-  height: 18px;
-  font-size: 18px;
 }
 
 .control-group {
