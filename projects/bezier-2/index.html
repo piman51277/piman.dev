@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script src="bundle.js"></script>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div>
+      <canvas id="canvas"></canvas>
+      <div id="control-box" class="controls">
+        <div class="point-count-control">
+          <p>Points</p>
+          <button id="add-point-btn">+</button>
+          <button id="remove-point-btn">-</button>
+        </div>
+        <div class="playback-control">
+          <p>Animation</p>
+          <button id="start-btn">Start</button>
+          <button id="stop-btn">Stop</button>
+          <input
+            id="time-control"
+            type="range"
+            min="0"
+            max="100"
+            step="1"
+            value="0"
+          />
+        </div>
+        <div class="options-control">
+          <input type="checkbox" id="show-inter" checked />
+          <label for="show-inter">Show Intermediates</label>
+
+          <button id="reset-btn">Reset</button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p>
+        This project's source code can be found <a href="https://github.com/piman51277/bezier-2">here</a></p>
+      </p>
+    </div>
+  </body>
+</html>
