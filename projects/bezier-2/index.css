@@ -9,6 +9,8 @@
 #control-box {
   width: 500px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .controls div {
@@ -24,9 +26,23 @@
   margin: 0;
 }
 
-.point-count-control {
-  button {
-    width: 30px;
-    height: 30px;
-  }
+#playback-control,
+#options-control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.point-count-control button {
+  width: 30px;
+  height: 30px;
+}
+
+#inter-toggle-box p {
+  margin: 0;
+  display: inline-block;
+}
+
+#proj-ref-link {
+  text-decoration: underline;
 }
