@@ -1,5 +1,6 @@
 @use "partials/home";
 @use "partials/projects";
+@use "partials/misc";
 
 @font-face {
   font-family: "Inconsolata";
@@ -42,7 +43,6 @@ a {
 }
 
 a {
-  text-decoration: none;
   color: inherit;
 }
 
