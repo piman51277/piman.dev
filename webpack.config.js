@@ -39,7 +39,7 @@ module.exports = {
   },
   output: {
     filename: "[name].js",
-    path: path.resolve(__dirname, "dist", "js"),
+    path: path.resolve(__dirname, "dist", "client", "js"),
   },
   mode: env,
   devtool: env === "development" ? "eval" : false,
