@@ -99,8 +99,7 @@ const faceTransfers: Record<Face, Record<Direction, Face>> = {
   },
 };
 
-//normalizes an angle % 360  to [0,360)
-const norm = (n: number): number => (n < 0 ? n + 360 : n);
+const transitionString = `transform 0.5s ease-in-out`;
 
 //dot product. (no safeguards!)
 const dot = (a: number[], b: number[]): number =>
@@ -163,14 +162,8 @@ export class CubeManip {
     if (!this.drag.mouseDown) return;
 
     this.drag.mouseDown = false;
-    this.drag.angleXChkp = norm(
-      (this.drag.angleXChkp + this.drag.angleX) % 360
-    );
-    this.drag.angleYChkp = norm(
-      (this.drag.angleYChkp + this.drag.angleY) % 360
-    );
-
-    this.rotator!.style.transition = `transform 0.5s ease-in-out`;
+    this.drag.angleXChkp = this.drag.angleXChkp + this.drag.angleX;
+    this.drag.angleYChkp = this.drag.angleYChkp + this.drag.angleY;
 
     if (this.options.autoSnap) {
       //fix a bug where cube would snap to wrong face if clicked
@@ -178,6 +171,7 @@ export class CubeManip {
         return;
       }
 
+      this.rotator!.style.transition = transitionString;
       this.doSnap();
     }
   }
@@ -191,15 +185,15 @@ export class CubeManip {
     const diffY = -(y - this.drag.lastY);
     this.drag.angleX = diffX * 0.5;
     this.drag.angleY = diffY * 0.5;
-    const newX = norm((this.drag.angleXChkp + this.drag.angleX) % 360);
-    const newY = norm((this.drag.angleYChkp + this.drag.angleY) % 360);
+    const newX = this.drag.angleXChkp + this.drag.angleX;
+    const newY = this.drag.angleYChkp + this.drag.angleY;
 
     this.rotator!.style.transform = `rotateX(${newY}deg) rotateY(${newX}deg)`;
   }
 
   private getNearestFace(): Face {
-    const y = this.drag.angleXChkp % 360;
-    const x = this.drag.angleYChkp % 360;
+    const y = this.drag.angleXChkp;
+    const x = this.drag.angleYChkp;
 
     //converts degrees to radians
     const toRad = (deg: number): number => (deg * Math.PI) / 180;
@@ -239,36 +233,83 @@ export class CubeManip {
   }
 
   /**
+   * Normalizes the cube's rotation
+   * @returns {boolean} true if the cube was normalized
+   */
+  private normalize(): boolean {
+    const norm = (n: number): number => {
+      if (n > 200) return n - 360;
+      if (n < -200) return n + 360;
+      return n;
+    };
+
+    const y = norm(this.drag.angleXChkp);
+    const x = norm(this.drag.angleYChkp);
+
+    const didNormalize =
+      y !== this.drag.angleXChkp || x !== this.drag.angleYChkp;
+
+    this.drag.angleXChkp = y;
+    this.drag.angleYChkp = x;
+    this.rotator!.style.transition = ``;
+    this.rotator!.style.transform = `rotateX(${x}deg) rotateY(${y}deg)`;
+
+    return didNormalize;
+  }
+
+  /**
    * Rotates the cube to the specified angle
    * @param {number} xTarg target x angle
    * @param {number} yTarg target y angle
    * @param {boolean} minimal if true, will rotate to the nearest equivalent angle
    */
-  private rotateTo(xTarg: number, yTarg: number, minimal = true): void {
-    this.rotator!.style.transition = `transform 0.5s ease-in-out`;
+  private async rotateTo(
+    xTarg: number,
+    yTarg: number,
+    minimal = true
+  ): Promise<void> {
+    this.rotator!.style.transition = transitionString;
     if (!minimal) {
       this.drag.angleXChkp = yTarg;
       this.drag.angleYChkp = xTarg;
+      this.rotator!.style.transition = transitionString;
       this.rotator!.style.transform = `rotateX(${xTarg}deg) rotateY(${yTarg}deg)`;
       return;
+    }
+
+    const didNormalize = this.normalize();
+    if (didNormalize) {
+      //insert a tiny delay so the event loop clears
+      //and the instant rotation doesn't get overridden
+      await new Promise((res) => {
+        setTimeout(() => {
+          res(null);
+        }, 10);
+      });
     }
 
     //get nearest equivalent angle
     const nearestAng = (n: number, target: number): number => {
       if (n % 360 === target) return n;
-      const candidates = [target, target + 360, target - 360];
+      const offset = Math.floor(n / 360) * 360;
+      const candidates = [
+        target + offset,
+        target + 360 + offset,
+        target - 360 + offset,
+      ];
       return candidates.reduce(
         (acc, cur) => (Math.abs(n - cur) < Math.abs(n - acc) ? cur : acc),
         3600
       );
     };
 
-    const y = this.drag.angleXChkp % 360;
-    const x = this.drag.angleYChkp % 360;
+    const y = this.drag.angleXChkp;
+    const x = this.drag.angleYChkp;
     const nearestX = nearestAng(x, xTarg);
     const nearestY = nearestAng(y, yTarg);
     this.drag.angleXChkp = nearestY;
     this.drag.angleYChkp = nearestX;
+    this.rotator!.style.transition = transitionString;
     this.rotator!.style.transform = `rotateX(${nearestX}deg) rotateY(${nearestY}deg)`;
   }
 
