@@ -130,8 +130,8 @@ export class CubeManip {
       lastY: 0,
       angleX: 0,
       angleY: 0,
-      angleXChkp: -10,
-      angleYChkp: -10,
+      angleXChkp: -15,
+      angleYChkp: -15,
     };
 
     this.init();
@@ -328,7 +328,7 @@ export class CubeManip {
    */
   public seekHome(): void {
     //it's okay if this spins quite a lot, it's fun!
-    this.rotateTo(-10, -10, false);
+    this.rotateTo(-15, -15, false);
   }
 
   /**
