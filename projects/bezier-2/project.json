@@ -1,8 +1,0 @@
-{
-  "name": "bezier-2",
-  "year": "2023",
-  "previewimg": "banner.png",
-  "main": "index.html",
-  "src": ["bundle.js", "index.css"],
-  "assets": []
-}

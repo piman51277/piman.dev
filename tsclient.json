@@ -2,13 +2,13 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "lib": ["es2018"],
+    "lib": ["es2018", "dom"],
     "strict": true,
-    "declaration": true,
+    "declaration": false,
     "outDir": "dist",
-    "sourceMap": true,
+    "sourceMap": false,
     "esModuleInterop": true
   },
-  "include": ["src/"],
+  "include": ["app/js"],
   "exclude": ["node_modules"]
 }

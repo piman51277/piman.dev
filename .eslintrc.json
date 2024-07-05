@@ -1,18 +1,25 @@
 {
   "env": {
-    "browser": true,
     "commonjs": true,
-    "es2021": true,
-    "jquery": true
+    "es2020": true
   },
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsdoc/recommended"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 12
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "jsdoc"],
   "rules": {
-    "semi": ["warn", "always"]
+    "semi": ["warn", "always"],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "error",
+    "jsdoc/require-jsdoc": "error"
   },
-  "ignorePatterns": ["node_modules/", "dist/", "projects/"]
+  "ignorePatterns": ["node_modules/", "dist/"]
 }

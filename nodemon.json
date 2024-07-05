@@ -1,0 +1,9 @@
+{
+  "watch": ["app"],
+  "ext": "ts,scss",
+  "delay": 2000,
+  "execMap": {
+    "ts": "npm run build-webpack",
+    "scss": "npm run build-scss"
+  }
+}
