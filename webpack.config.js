@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 require("dotenv").config();
 
 //read contents of src/client/pages, each file is a page
@@ -24,18 +25,26 @@ module.exports = {
           loader: "ts-loader",
           options: {
             configFile: path.resolve(__dirname, "tsclient.json"),
+            transpileOnly: true,
           },
         },
       },
     ],
   },
+  plugins: [new ForkTsCheckerWebpackPlugin()],
   resolve: {
     extensions: [".ts"],
+    symlinks: false,
+    cacheWithContext: false,
   },
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "dist", "js"),
   },
   mode: env,
-  devtool: env === "development" ? "source-map" : false,
+  devtool: env === "development" ? "eval" : false,
+  watchOptions: {
+    aggregateTimeout: 300,
+    ignored: /node_modules/
+  }
 };

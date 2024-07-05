@@ -9,7 +9,10 @@
     "build-scss": "sass app/scss:dist/css",
     "build-client": "concurrently npm:build-webpack npm:build-scss",
     "build-server": "tsc",
-    "watch": "nodemon --delay 2"
+    "build-all": "concurrently npm:build-client npm:build-server",
+    "watch-webpack": "webpack --watch --config webpack.config.js",
+    "watch-scss": "sass --watch app/scss:dist/css",
+    "watch-client": "concurrently npm:watch-webpack npm:watch-scss"
   },
   "author": "piman51277",
   "private": true,
@@ -26,7 +29,7 @@
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-plugin-jsdoc": "^48.5.2",
-    "nodemon": "^3.1.4",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
     "sass": "^1.77.6",
     "ts-loader": "^9.5.1",
     "typescript": "^5.5.3",
