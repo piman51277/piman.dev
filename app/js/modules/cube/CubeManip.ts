@@ -20,24 +20,27 @@ interface FaceEntry {
 
 export type Face = "front" | "back" | "left" | "right" | "top" | "bottom";
 
+//this controls offset for snapping
+const slew = -15;
+
 /**
  * Table of faces and their respective angles and normals
  */
 const faces: Record<Face, FaceEntry> = {
   front: {
-    angle: [0, 0],
+    angle: [0 + slew, 0 + slew],
     normal: [0, 0, -1],
   },
   back: {
-    angle: [0, 180],
+    angle: [0 + slew, 180 + slew],
     normal: [0, 0, 1],
   },
   left: {
-    angle: [0, 90],
+    angle: [0 + slew, 90 + slew],
     normal: [-1, 0, 0],
   },
   right: {
-    angle: [0, 270],
+    angle: [0 + slew, 270 + slew],
     normal: [1, 0, 0],
   },
   top: {
