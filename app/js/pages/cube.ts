@@ -1,6 +1,11 @@
 import { CubeManip, Direction, Face } from "../modules/cube/CubeManip";
 import { ready } from "../shared/ready";
 
+const blacklistedEvents = ["mousedown", "mouseup"];
+const blockProp = (e: Event) => {
+  e.stopPropagation();
+};
+
 ready(() => {
   const hostBox = document.getElementById("cube-box") as HTMLDivElement;
   const rotator = document.getElementById("cube-rotator") as HTMLDivElement;
@@ -33,6 +38,7 @@ ready(() => {
     autoSnap: snapCheckbox.checked,
   });
 
+  //bind panel control buttons
   snapCheckbox.addEventListener("change", () => {
     manip.setAutoSnap(snapCheckbox.checked);
   });
@@ -45,6 +51,7 @@ ready(() => {
     manip.seekHome();
   });
 
+  //bind direction buttons
   directionUp.addEventListener("click", () => {
     manip.seekDirection(Direction.UP);
   });
@@ -60,4 +67,22 @@ ready(() => {
   directionRight.addEventListener("click", () => {
     manip.seekDirection(Direction.RIGHT);
   });
+
+  //override mouse events so the drag functionality
+  //doesn't interfere with thier operations
+  const inputs = [
+    snapCheckbox,
+    lockCheckbox,
+    homeButton,
+    directionUp,
+    directionDown,
+    directionLeft,
+    directionRight,
+  ];
+
+  for (const event of blacklistedEvents) {
+    for (const input of inputs) {
+      input.addEventListener(event, blockProp);
+    }
+  }
 });
