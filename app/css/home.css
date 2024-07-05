@@ -92,6 +92,8 @@ body {
     height: 190px;
     border-radius: 100px;
     object-fit: cover;
+    user-select: none;
+    pointer-events: none;
   }
 }
 
