@@ -1,8 +1,10 @@
-import { CubeManip, Direction, Face } from "../modules/cube/CubeManip";
+import { CubeManip, Direction } from "../modules/cube/CubeManip";
+import { Game } from "../modules/snek/Game";
+import { RendererLight } from "../modules/snek/RenderLight";
 import { ready } from "../shared/ready";
 
 const blacklistedEvents = ["mousedown", "mouseup"];
-const blockProp = (e: Event) => {
+const blockProp = (e: Event): void => {
   e.stopPropagation();
 };
 
@@ -85,4 +87,25 @@ ready(() => {
       input.addEventListener(event, blockProp);
     }
   }
+
+  const screen = new RendererLight(
+    document.getElementById("cube-canvas-snek") as HTMLCanvasElement
+  );
+
+  const game = new Game();
+
+  /**
+   * helper ticker
+   */
+  function tick(): void {
+    game.nextTick();
+    if (game.game_over) {
+      game.reset();
+    }
+
+    screen.drawSnek(game.snek.x);
+    screen.drawFood(game.food);
+  }
+
+  setInterval(tick, 20);
 });

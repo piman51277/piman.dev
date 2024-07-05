@@ -4,6 +4,9 @@ import { app } from "../app";
 // static content
 app.use("/static", express.static("dist/client"));
 
+// assets
+app.use("/assets", express.static("app/assets"));
+
 // For pages that need no templating or dynamic content
 const staticRoutes: Record<string, string> = {
   "/": "home.html",

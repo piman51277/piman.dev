@@ -4,7 +4,7 @@
 @import "elements/cube-controls.css";
 
 body {
-  background-color: #1e1e1e;
+  background-color: var(--color-dark);
 }
 
 #cube-box {
@@ -47,7 +47,6 @@ body {
   height: var(--inner-dim);
   background-color: var(--color-back);
   border: 2px solid var(--color-dark);
-  border-radius: 20px;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   user-select: none;
@@ -65,7 +64,7 @@ body {
   h1 {
     position: absolute;
     text-align: center;
-    font-size: clamp(15px, 2vw, 16px);
+    font-size: clamp(14px, 2vw, 15px);
     line-height: normal;
     color: var(--color-light);
 
@@ -73,6 +72,26 @@ body {
       color: var(--color-light);
       text-decoration-line: underline;
     }
+  }
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 184px;
+    height: 184px;
+    background-color: var(--color-dark);
+    margin: 8px;
+  }
+
+  img {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 190px;
+    height: 190px;
+    border-radius: 100px;
+    object-fit: cover;
   }
 }
 
@@ -101,7 +120,7 @@ body {
     top: 50px;
     width: 180px;
     height: 130px;
-    font-size: clamp(15px, 2vw, 16px);
+    font-size: clamp(14px, 2vw, 15px);
   }
 
   .cb-content {
