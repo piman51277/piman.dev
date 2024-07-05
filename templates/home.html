@@ -1,23 +1,81 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>css-cube</title>
-    <script src="/static/js/cube.js"></script>
-    <link rel="stylesheet" href="/static/css/cube.css" />
+    <title>piman.dev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=K2D:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/static/js/home.js"></script>
+    <link rel="stylesheet" href="/static/css/home.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <div id="cube-box">
       <div id="cube-rotator" title="drag me!">
         <div class="cb-face" id="cb-front">
-          <p>front</p>
-          <a href="https://github.com" target="_blank">Link !!!</a>
+          <div class="cb-face-content cb-content-text">
+            <p class="font-k2d-medium">
+              Hi, I’m piman.<br />Welcome to my website!<br /><br />
+              If you’re in a hurry:<br /><a
+                target="_blank"
+                href="https://github.com/piman51277"
+                >GitHub</a
+              >
+              |
+              <a
+                target="_blank"
+                href="https://steamcommunity.com/profiles/76561198954908705"
+                >Steam</a
+              ><br /><br />
+              If not, have a look ‘round<br />(P.S. This thing rotates!)
+            </p>
+          </div>
         </div>
-        <div class="cb-face" id="cb-left">left</div>
-        <div class="cb-face" id="cb-back">back</div>
-        <div class="cb-face" id="cb-right">right</div>
-        <div class="cb-face" id="cb-top">top</div>
-        <div class="cb-face" id="cb-bottom">bottom</div>
+        <div class="cb-face" id="cb-left">
+          <div class="cb-face-content"></div>
+        </div>
+        <div class="cb-face" id="cb-back">
+          <div class="cb-face-content">back</div>
+        </div>
+        <div class="cb-face" id="cb-right">
+          <div class="cb-face-content cb-content-section">
+            <h1>About</h1>
+            <p>
+              I make impractical<br />
+              things for fun.<br />
+              After all, <br />
+              you’ll never learn if you never try something new.
+            </p>
+          </div>
+        </div>
+        <div class="cb-face" id="cb-top">
+          <div class="cb-face-content cb-content-section">
+            <h1>Projects</h1>
+            <div class="cb-content">
+              <div class="cb-link-pill">
+                <h4>Live Demos</h4>
+                <a target="_blank" href="/projects">
+                  {% include "icons/link.html" %}</a
+                >
+              </div>
+              <div class="cb-link-pill">
+                {% include "icons/gh-logo.html" %}
+                <h4>Repos</h4>
+                <a
+                  target="_blank"
+                  href="https://github.com/piman51277?tab=repositories"
+                  >{% include "icons/link.html" %}</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cb-face" id="cb-bottom">
+          <div class="cb-face-content">bottom</div>
+        </div>
       </div>
       {% include "elements/cube-controls.html" %}
     </div>
