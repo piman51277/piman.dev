@@ -9,6 +9,7 @@ export const app = express();
 nunjucks.configure("templates", {
   autoescape: true,
   express: app,
+  noCache: process.env.NODE_ENV === "development",
 });
 
 app.listen(process.env.PORT, () => {

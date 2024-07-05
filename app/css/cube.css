@@ -1,6 +1,22 @@
+@import "elements/cube-controls.css";
+
+body {
+  background-color: #1e1e1e;
+}
+
 #cube-box {
-  --outer-dim: 400px;
-  --inner-dim: 300px;
+  --outer-dim: 350px;
+  --inner-dim: 200px;
+}
+
+@media (min-width: 450px) {
+  #cube-box {
+    --outer-dim: 450px;
+    --inner-dim: 250px;
+  }
+}
+
+#cube-box {
   --half-dim: calc(var(--inner-dim) / 2);
   --neg-dim: calc(var(--inner-dim) * -0.5);
   --offset: calc((var(--outer-dim) - var(--inner-dim)) / 2);
@@ -17,14 +33,14 @@
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transform: rotateX(-10deg) rotateY(-20deg);
+  transform: rotateX(-10deg) rotateY(-10deg);
 }
 
 .cb-face {
   position: absolute;
   width: var(--inner-dim);
   height: var(--inner-dim);
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   border: 1px solid black;
   text-align: center;
   -webkit-backface-visibility: hidden;

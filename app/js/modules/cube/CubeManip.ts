@@ -20,6 +20,9 @@ interface FaceEntry {
 
 export type Face = "front" | "back" | "left" | "right" | "top" | "bottom";
 
+/**
+ * Table of faces and their respective angles and normals
+ */
 const faces: Record<Face, FaceEntry> = {
   front: {
     angle: [0, 0],
@@ -44,6 +47,55 @@ const faces: Record<Face, FaceEntry> = {
   bottom: {
     angle: [90, 0],
     normal: [0, 1, 0],
+  },
+};
+
+export enum Direction {
+  UP,
+  DOWN,
+  LEFT,
+  RIGHT,
+}
+
+/**
+ * Table of directional face transfers
+ */
+const faceTransfers: Record<Face, Record<Direction, Face>> = {
+  front: {
+    [Direction.UP]: "top",
+    [Direction.DOWN]: "bottom",
+    [Direction.LEFT]: "left",
+    [Direction.RIGHT]: "right",
+  },
+  back: {
+    [Direction.UP]: "top",
+    [Direction.DOWN]: "bottom",
+    [Direction.LEFT]: "right",
+    [Direction.RIGHT]: "left",
+  },
+  left: {
+    [Direction.UP]: "top",
+    [Direction.DOWN]: "bottom",
+    [Direction.LEFT]: "back",
+    [Direction.RIGHT]: "front",
+  },
+  right: {
+    [Direction.UP]: "top",
+    [Direction.DOWN]: "bottom",
+    [Direction.LEFT]: "front",
+    [Direction.RIGHT]: "back",
+  },
+  top: {
+    [Direction.UP]: "back",
+    [Direction.DOWN]: "front",
+    [Direction.LEFT]: "left",
+    [Direction.RIGHT]: "right",
+  },
+  bottom: {
+    [Direction.UP]: "front",
+    [Direction.DOWN]: "back",
+    [Direction.LEFT]: "left",
+    [Direction.RIGHT]: "right",
   },
 };
 
@@ -79,8 +131,8 @@ export class CubeManip {
       lastY: 0,
       angleX: 0,
       angleY: 0,
-      angleXChkp: 0,
-      angleYChkp: 0,
+      angleXChkp: -10,
+      angleYChkp: -10,
     };
 
     this.init();
@@ -221,11 +273,21 @@ export class CubeManip {
   }
 
   /**
+   * Moves in a direction
+   * @param {Direction} direction direction to move in
+   */
+  public seekDirection(direction: Direction): void {
+    const face = this.getNearestFace();
+    const newFace = faceTransfers[face][direction];
+    this.seekFace(newFace);
+  }
+
+  /**
    * Rotates the cube to the front face
    */
   public seekHome(): void {
     //it's okay if this spins quite a lot, it's fun!
-    this.rotateTo(-10, -20, false);
+    this.rotateTo(-10, -10, false);
   }
 
   /**
@@ -238,17 +300,11 @@ export class CubeManip {
   }
 
   /**
-   * Locks the cube's position
+   * Sets the cube's position lock
+   * @param {boolean} value the new value
    */
-  public lockPosition(): void {
-    this.options.lockPosition = true;
-  }
-
-  /**
-   * Unlocks the cube's position
-   */
-  public unlockPosition(): void {
-    this.options.lockPosition = false;
+  public setPositionLock(value: boolean): void {
+    this.options.lockPosition = value;
   }
 
   /**
@@ -259,27 +315,20 @@ export class CubeManip {
   }
 
   /**
-   * Enables the cube's auto snap
+   * Sets the cube's auto snap
+   * @param {boolean} value the new value
    */
-  public enableAutoSnap(): void {
-    this.options.autoSnap = true;
-    this.doSnap();
-  }
-
-  /**
-   * Disables the cube's auto snap
-   */
-  public disableAutoSnap(): void {
-    this.options.autoSnap = false;
+  public setAutoSnap(value: boolean): void {
+    this.options.autoSnap = value;
+    if (this.options.autoSnap) {
+      this.doSnap();
+    }
   }
 
   /**
    * Toggles the cube's auto snap
    */
   public toggleAutoSnap(): void {
-    this.options.autoSnap = !this.options.autoSnap;
-    if (this.options.autoSnap) {
-      this.doSnap();
-    }
+    this.setAutoSnap(!this.options.autoSnap);
   }
 }

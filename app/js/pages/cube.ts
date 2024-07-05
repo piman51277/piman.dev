@@ -1,37 +1,63 @@
-import { CubeManip, Face } from "../modules/cube/CubeManip";
+import { CubeManip, Direction, Face } from "../modules/cube/CubeManip";
 import { ready } from "../shared/ready";
-
-const idPairs = [
-  ["seek-front", "front"],
-  ["seek-back", "back"],
-  ["seek-left", "left"],
-  ["seek-right", "right"],
-  ["seek-top", "top"],
-  ["seek-bottom", "bottom"],
-];
 
 ready(() => {
   const hostBox = document.getElementById("cube-box") as HTMLDivElement;
   const rotator = document.getElementById("cube-rotator") as HTMLDivElement;
 
-  const manip = new CubeManip(hostBox, rotator);
-
-  const seekHomeBtn = document.getElementById("seek-home") as HTMLButtonElement;
-  seekHomeBtn.addEventListener("click", () => manip.seekHome());
-
-  const toggleLockBtn = document.getElementById(
-    "toggle-lock"
+  const snapCheckbox = document.getElementById(
+    "cube-control-snap"
+  ) as HTMLInputElement;
+  const lockCheckbox = document.getElementById(
+    "cube-control-lock"
+  ) as HTMLInputElement;
+  const homeButton = document.getElementById(
+    "cube-control-home"
   ) as HTMLButtonElement;
-  toggleLockBtn.addEventListener("click", () => manip.togglePositionLock());
 
-  const toggleSnapBtn = document.getElementById(
-    "toggle-snap"
+  const directionUp = document.getElementById(
+    "cube-control-up"
   ) as HTMLButtonElement;
-  toggleSnapBtn.addEventListener("click", () => manip.toggleAutoSnap());
+  const directionDown = document.getElementById(
+    "cube-control-down"
+  ) as HTMLButtonElement;
+  const directionLeft = document.getElementById(
+    "cube-control-left"
+  ) as HTMLButtonElement;
+  const directionRight = document.getElementById(
+    "cube-control-right"
+  ) as HTMLButtonElement;
 
-  //bind seek buttons
-  idPairs.forEach(([id, face]) => {
-    const btn = document.getElementById(id) as HTMLButtonElement;
-    btn.addEventListener("click", () => manip.seekFace(face as Face));
+  const manip = new CubeManip(hostBox, rotator, {
+    //this should be on by default, but autofill can override
+    autoSnap: snapCheckbox.checked,
+  });
+
+  snapCheckbox.addEventListener("change", () => {
+    manip.setAutoSnap(snapCheckbox.checked);
+  });
+
+  lockCheckbox.addEventListener("change", () => {
+    manip.setPositionLock(lockCheckbox.checked);
+  });
+
+  homeButton.addEventListener("click", () => {
+    manip.seekHome();
+  });
+
+  directionUp.addEventListener("click", () => {
+    manip.seekDirection(Direction.UP);
+  });
+
+  directionDown.addEventListener("click", () => {
+    manip.seekDirection(Direction.DOWN);
+  });
+
+  directionLeft.addEventListener("click", () => {
+    manip.seekDirection(Direction.LEFT);
+  });
+
+  directionRight.addEventListener("click", () => {
+    manip.seekDirection(Direction.RIGHT);
   });
 });
