@@ -1,5 +1,5 @@
 {% macro _el(alt,x,y) %}
-  <div alt="{{ alt }}" class="project-tech-icon" style="background-position: -{{ x }}px {{ y }}px;"></div>
+  <div alt="{{ alt }}" title="{{ alt }}" class="project-tech-icon" style="background-position: -{{ x }}px {{ y }}px;"></div>
 {% endmacro %}
 {% macro render(list) %}
   <div class="project-tech-icon-box">
