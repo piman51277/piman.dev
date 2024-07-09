@@ -3,5 +3,5 @@ dist/
 host/
 cert/
 .vscode/
-projects/
+/projects/
 .env
