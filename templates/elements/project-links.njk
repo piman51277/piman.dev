@@ -1,0 +1,14 @@
+{% import "elements/link.njk" as linkElem %}
+{% macro render(links) %}
+  <div class="project-pill-link-box">
+    {% for link in links %}
+      {% if link.type == "github" %}
+        {{ linkElem.github(link.url, link.alt) }}
+      {% elif link.type == "external" %}
+        {{ linkElem.external(link.url, link.alt) }}
+      {% elif link.type == "file" %}
+        {{ linkElem.file(link.url, link.alt) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endmacro %}

@@ -13,7 +13,10 @@
     <meta name="keywords" content="piman, projects"/>
   </head>
   <body>
-    {% include "elements/project-pill.njk" %}
-    {% include "elements/project-pill.njk" %}
+    {% include "icons/preload.njk" %}
+    {% import "elements/project-pill.njk" as project %}
+    {% for manifest in projects %}
+      {{ project.pill(manifest) }}
+    {% endfor %}
   </body>
 </html>

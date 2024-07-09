@@ -53,11 +53,16 @@ This file describes your project and configures project loading. Create this fil
 
 ### TechIcon
 String. Name of technology used in project. One of:
-- `js`
-- `ts`
-- `webpack`
-- `figma`
-- `inkscape`
+- ts
+- webpack
+- arduino
+- figma
+- inkscape
+- js
+- postcss
+- cpp
+- sass
+- cuda
 
 See [manifest.ts](/src/projects/manifest.ts) for latest list.
 

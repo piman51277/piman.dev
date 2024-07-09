@@ -1,9 +1,14 @@
 export enum TechIcon {
-  JS = "js",
   TS = "ts",
   WEBPACK = "webpack",
+  ARDUINO = "arduino",
   FIGMA = "figma",
   INKSCAPE = "inkscape",
+  JS = "js",
+  POSTCSS = "postcss",
+  CPP = "cpp",
+  SASS = "sass",
+  CUDA = "cuda",
 }
 
 export interface IManifestLink {

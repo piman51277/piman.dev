@@ -1,0 +1,20 @@
+{% macro github(url, label) %}
+  <a target="_blank" href="{{ url }}" aria-label="{{ label }}" title="{{ label }}">
+    {% include "icons/gh-icon.njk" %}
+  </a>
+{% endmacro %}
+{% macro internal(url, label) %}
+  <a href="{{ url }}" aria-label="{{ label }}" title="{{ label }}">
+    {% include "icons/link-icon.njk" %}
+  </a>
+{% endmacro %}
+{% macro external(url, label) %}
+  <a target="_blank" href="{{ url }}" aria-label="{{ label }}" title="{{ label }}">
+    {% include "icons/link-icon.njk" %}
+  </a>
+{% endmacro %}
+{% macro file(url, label) %}
+  <a target="_blank" href="{{ url }}" aria-label="{{ label }}" title="{{ label }}">
+    {% include "icons/file-icon.njk" %}
+  </a>
+{% endmacro %}

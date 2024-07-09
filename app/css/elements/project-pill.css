@@ -58,6 +58,13 @@
       position: absolute;
       bottom: 10px;
       left: 10px;
+
+      .project-tech-icon {
+        width: 32px;
+        height: 32px;
+        background-image: url(/assets/tech-spritesheet.png);
+        background-size: 160px 64px;
+      }
     }
 
     .project-pill-link-box {

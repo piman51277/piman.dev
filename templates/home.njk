@@ -13,6 +13,8 @@
     <meta name="keywords" content="piman"/>
   </head>
   <body>
+    {% include "icons/preload.njk" %}
+    {% import "elements/link.njk" as link %}
     <div id="cube-box">
       <div id="cube-rotator" title="drag me!">
         <div class="cb-face" id="cb-front">
@@ -49,12 +51,12 @@
             <div class="cb-content">
               <div class="cb-link-pill">
                 <span class="font-k2d-medium">Live Demos</span>
-                <a target="_blank" href="/projects" aria-label="links to projects page">{% include "icons/link.njk" %}</a>
+                {{ link.internal("/projects", "links to projects page") }}
               </div>
               <div class="cb-link-pill">
-                {% include "icons/gh-logo.njk" %}
+                {% include "icons/gh-icon.njk" %}
                 <span class="font-k2d-medium">Repos</span>
-                <a target="_blank" href="https://github.com/piman51277?tab=repositories" aria-label="links to github repositories">{% include "icons/link.njk" %}</a>
+                {{ link.external("https://github.com/piman51277?tab=repositories", "links to github repositories") }}
               </div>
             </div>
           </div>
