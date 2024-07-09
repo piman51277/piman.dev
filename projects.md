@@ -80,6 +80,9 @@ See [manifest.ts](/src/projects/manifest.ts) for latest list.
 - `alt`: The alt text for the link
 
 ### IAsset
+
+> Note: The project loader will automatically include most assets referenced by any HTML or CSS files. This is only nessesary if the project loader fails or if the asset is not referenced in the project files.
+
 ```ts
 {
   src: string;
