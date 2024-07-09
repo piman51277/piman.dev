@@ -1,0 +1,15 @@
+@import "util/reset.css";
+@import "util/palette.css";
+@import "util/font-k2d.css";
+@import "util/loading-box.css";
+
+@import "elements/project-pill.css";
+
+body {
+  background-color: var(--color-dark);
+}
+
+#testbox {
+  width: 500px;
+  height: 200px;
+}

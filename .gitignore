@@ -3,3 +3,4 @@ dist/
 host/
 cert/
 .env
+.vscode
