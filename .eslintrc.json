@@ -21,5 +21,5 @@
     "@typescript-eslint/explicit-module-boundary-types": "error",
     "jsdoc/require-jsdoc": "error"
   },
-  "ignorePatterns": ["node_modules/", "dist/", "projects/"]
+  "ignorePatterns": ["node_modules/", "dist/", "/projects/"]
 }
