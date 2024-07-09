@@ -1,7 +1,0 @@
-node_modules
-dist/
-host/
-cert/
-.env
-assets/css/*.css
-assets/css/*.css.map
