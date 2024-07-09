@@ -1,0 +1,17 @@
+{% macro pill(manifest) %}
+  <div class="project-pill-box">
+    <div class="project-pill-img loading-box">
+      <img src="{{ manifest.meta.icon }}" width="200px" height="200px" alt="{{ manifest.meta.title }} Icon" loading="lazy"/>
+    </div>
+    <div class="project-pill-summary">
+      <h1 class="project-pill-title font-k2d-medium">{{ manifest.meta.title }}</h1>
+      <p class="project-pill-description font-k2d-medium">
+        {{ manifest.meta.description }}
+      </p>
+      {% import "elements/project-tech.njk" as tech %}
+      {{ tech.render(manifest.meta.tech) }}
+      {% import "elements/project-links.njk" as links %}
+      {{ links.render(manifest.meta.links) }}
+    </div>
+  </div>
+{% endmacro %}

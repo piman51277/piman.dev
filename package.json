@@ -1,0 +1,53 @@
+{
+  "name": "piman.dev",
+  "version": "2.0.0",
+  "description": "piman's personal site",
+  "main": "src/index.js",
+  "scripts": {
+    "build-webpack": "webpack --config webpack.config.js",
+    "build-css": "postcss app/css/*.css --dir dist/client/css",
+    "build-client": "concurrently npm:build-webpack npm:build-css",
+    "build-server": "tsc",
+    "build-all": "concurrently npm:build-client npm:build-server",
+    "watch-webpack": "webpack --watch --config webpack.config.js",
+    "watch-css": "postcss app/css/*.css --dir dist/client/css --watch",
+    "watch-client": "concurrently npm:watch-webpack npm:watch-css",
+    "watch-server": "nodemon",
+    "setup": "mkdir -p dist/client/css & mkdir -p dist/client/js",
+    "start": "node dist/index.js"
+  },
+  "author": "piman51277",
+  "private": true,
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "joi": "^17.13.3",
+    "node-html-parser": "^6.1.13",
+    "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.9",
+    "@types/nunjucks": "^3.2.6",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "cssnano": "^7.0.3",
+    "eslint": "^8.57.0",
+    "eslint-plugin-jsdoc": "^48.5.2",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "nodemon": "^3.1.4",
+    "postcss": "^8.4.39",
+    "postcss-calc": "^10.0.0",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.1.0",
+    "postcss-nested": "^6.0.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.3",
+    "webpack-cli": "^5.1.4"
+  },
+  "browerslist": [
+    "defaults and fully supports es6-module"
+  ]
+}

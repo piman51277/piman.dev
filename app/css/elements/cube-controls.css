@@ -1,0 +1,106 @@
+.cube-control {
+  width: 32px;
+  height: 32px;
+  user-select: none;
+
+  input[type="checkbox"],
+  input[type="button"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 32px;
+    width: 32px;
+    margin: 0px;
+  }
+}
+
+.cube-control-icon {
+  --color-active: rgba(255, 255, 255, 1);
+  --color-inactive: rgba(255, 255, 255, 0.3);
+
+  .svg-apply-stroke {
+    fill: none;
+    stroke: var(--intcolor);
+  }
+
+  .svg-apply-fill {
+    fill: var(--intcolor);
+    stroke: none;
+  }
+}
+
+.cube-control-check:checked ~ .cube-control-icon,
+.cube-control-btn:hover ~ .cube-control-icon {
+  --intcolor: var(--color-active);
+
+  .cube-svg-elem-disable.svg-apply-stroke {
+    stroke: var(--intcolor);
+  }
+
+  .cube-svg-elem-disable.svg-apply-fill {
+    fill: var(--intcolor);
+  }
+}
+
+.cube-control-check ~ .cube-control-icon,
+.cube-control-btn ~ .cube-control-icon {
+  --intcolor: var(--color-inactive);
+
+  .cube-svg-elem-disable.svg-apply-stroke {
+    stroke: none;
+  }
+
+  .cube-svg-elem-disable.svg-apply-fill {
+    fill: none;
+  }
+}
+
+.cube-mode-controls {
+  display: flex;
+  width: 80px;
+  height: 80px;
+  padding: 3px;
+  justify-content: flex-end;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.cube-directional-up,
+.cube-directional-down,
+.cube-directional-left,
+.cube-directional-right {
+  position: absolute;
+  --directional-offset: calc((var(--outer-dim) - 16px) / 2);
+}
+
+.cube-directional-up,
+.cube-directional-down {
+  left: var(--directional-offset);
+}
+
+.cube-directional-left,
+.cube-directional-right {
+  top: var(--directional-offset);
+}
+
+.cube-directional-up {
+  top: 0px;
+}
+
+.cube-directional-down {
+  bottom: 0px;
+}
+
+.cube-directional-left {
+  left: 0px;
+}
+
+.cube-directional-right {
+  right: 0px;
+}

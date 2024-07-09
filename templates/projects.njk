@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>piman.dev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=K2D:wght@500&display=swap" rel="stylesheet"/>
+    <script src="/static/js/projects.js"></script>
+    <link rel="stylesheet" href="/static/css/projects.css"/>
+    <link rel="icon" href="/assets/favicon.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="piman's projects"/>
+    <meta name="keywords" content="piman, projects"/>
+  </head>
+  <body>
+    {% include "icons/preload.njk" %}
+    {% import "elements/project-pill.njk" as project %}
+    <div class="header-box">
+      <h1 class="font-k2d-medium">Projects</h1>
+      <h2 class="font-k2d-medium">and other bits and bobs</h2>
+    </div>
+    <div class="projects-box">
+      {% for manifest in projects %}
+        {{ project.pill(manifest) }}
+      {% endfor %}
+      <div class="project-placeholder" id="placeholder-1"></div>
+      <div class="project-placeholder" id="placeholder-2"></div>
+    </div>
+  </body>
+</html>
