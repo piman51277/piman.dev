@@ -27,9 +27,16 @@ for (const projectDir of projectDirs) {
     const manifestPath = join(projectsDir, projectDir.name, "manifest.json");
     if (existsSync(manifestPath)) {
       console.log(`Loading project at ${projectPath}`);
-      const manifest = loadFileManifest(manifestPath);
-      const project = loadProject(manifest, join(projectsDir, projectDir.name));
-      projects.push(project);
+      try {
+        const manifest = loadFileManifest(manifestPath);
+        const project = loadProject(
+          manifest,
+          join(projectsDir, projectDir.name)
+        );
+        projects.push(project);
+      } catch (e) {
+        console.error(`Failed to load project at ${projectPath}: ${e}`);
+      }
     }
   }
 }
