@@ -38,7 +38,7 @@ for (const [alias, file] of Object.entries(aliases)) {
   });
 }
 
-const displayedProjects = enabledProjects.filter(
+let displayedProjects = enabledProjects.filter(
   (project) => !project.meta.hidden
 );
 
@@ -53,6 +53,11 @@ displayedProjects.forEach((project) => {
     alt: "Project",
   });
 });
+
+//sort by title
+displayedProjects = displayedProjects.sort((a, b) =>
+  a.meta.title.localeCompare(b.meta.title)
+);
 
 projectsRouter.get("/", (req, res) => {
   res.render("projects.njk", {
