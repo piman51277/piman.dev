@@ -3,5 +3,15 @@ dist/
 host/
 .vscode/
 .env
+
+# root projects directory
 /projects/
+
+# symbolic link
+projects
+
+#but allow projects under other conditions
+!src/projects/
+!app/projects/
+
 .gitmodules
