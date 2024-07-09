@@ -19,7 +19,8 @@
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/explicit-function-return-type": "error",
     "@typescript-eslint/explicit-module-boundary-types": "error",
-    "jsdoc/require-jsdoc": "error"
+    "jsdoc/require-jsdoc": "error",
+    "jsdoc/no-undefined-types": "off"
   },
   "ignorePatterns": ["node_modules/", "dist/", "/projects/"]
 }
