@@ -1,5 +1,5 @@
 {% macro _el(alt,x,y) %}
-  <div alt="{{ alt }}" title="{{ alt }}" class="project-tech-icon" style="background-position: -{{ x }}px {{ y }}px;"></div>
+  <div alt="{{ alt }}" title="{{ alt }}" class="project-tech-icon" style="background-position: -{{ x }}px -{{ y }}px;"></div>
 {% endmacro %}
 {% macro render(list) %}
   <div class="project-tech-icon-box">
@@ -24,6 +24,16 @@
         {{ _el("SASS",96,32) }}
       {% elif elem == "cuda" %}
         {{ _el("CUDA",128,32) }}
+      {% elif elem == "vex" %}
+        {{ _el("VEX v5",0,64) }}
+      {% elif elem == "py" %}
+        {{ _el("Python",32,64) }}
+      {% elif elem == "mongo" %}
+        {{ _el("MongoDB",64,64) }}
+      {% elif elem == "go" %}
+        {{ _el("Golang",96,64) }}
+      {% elif elem == "postman" %}
+        {{ _el("Postman",128,64) }}
       {% endif %}
     {% endfor %}
   </div>

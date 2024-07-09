@@ -9,6 +9,11 @@ export enum TechIcon {
   CPP = "cpp",
   SASS = "sass",
   CUDA = "cuda",
+  VEX = "vex",
+  PY = "py",
+  MONGO = "mongo",
+  GO = "go",
+  POSTMAN = "postman",
 }
 
 export interface IManifestLink {

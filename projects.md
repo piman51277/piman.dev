@@ -65,6 +65,11 @@ String. Name of technology used in project. One of:
 - cpp
 - sass
 - cuda
+- vex
+- py
+- mongo
+- go
+- postman
 
 See [manifest.ts](/src/projects/manifest.ts) for latest list.
 
