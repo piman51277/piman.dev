@@ -110,7 +110,7 @@ export function loadFileManifest(path: string): IManifestFile {
   }
 
   //validate the file
-  const { error } = ManifestFileSchema.validate(manifest);
+  const { error, value } = ManifestFileSchema.validate(manifest);
   if (error) {
     throw new Error(
       `Invalid manifest file. Errors:\n${error.details
@@ -119,5 +119,5 @@ export function loadFileManifest(path: string): IManifestFile {
     );
   }
 
-  return manifest;
+  return value;
 }
