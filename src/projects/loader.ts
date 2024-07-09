@@ -73,7 +73,7 @@ export function loadProject(manifest: IManifestFile, root: string): IManifest {
         };
         assetOrder.push(ref);
         if (canParseFile(ref)) {
-          toParse.push(join(root, ref));
+          toParse.push(ref);
         }
       }
     }
