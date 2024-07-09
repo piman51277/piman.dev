@@ -1,7 +1,6 @@
 node_modules/
 dist/
 host/
-cert/
 .vscode/
 /projects/
 .env
