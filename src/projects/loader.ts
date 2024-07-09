@@ -126,6 +126,9 @@ export function loadProject(manifest: IManifestFile, root: string): IManifest {
     }
   }
 
+  //update the icon
+  manifestCopy.meta.icon = assets[manifest.meta.icon].newName as string;
+
   //get the file name of the main file
   const mainName = (assets[manifest.main].newName as string).replace("/p/", "");
   const mainPath = join(hostDir, mainName);
