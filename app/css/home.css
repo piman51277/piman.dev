@@ -80,7 +80,7 @@ body {
     left: 0;
     width: 184px;
     height: 184px;
-    background-color: var(--color-dark);
+    background-color: var(--color-back);
     margin: 8px;
   }
 
