@@ -44,6 +44,8 @@ const displayedProjects = enabledProjects.filter(
 
 //insert new link icon pointing to the project
 displayedProjects.forEach((project) => {
+  if (!project.meta.hasDemo) return;
+
   const alias = aliasInverse[project.main];
   project.meta.links.push({
     type: "external",

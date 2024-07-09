@@ -33,10 +33,11 @@ This file describes your project and configures project loading. Create this fil
     "hidden": false,
     "icon": "icon.png",
     "tech": [],
-    "links": []
+    "links": [],
+    "hasDemo": true
   },
   "main": "main.html",
-  "assets": []
+  "assets": [],
 }
 ```
 
@@ -48,6 +49,7 @@ This file describes your project and configures project loading. Create this fil
     - `icon`: path to the project icon
     - `tech`: Array of TechIcon names. Max 5 (truncate if more)
     - `links`: Array of IManifestLink. Max 4 (truncate if more)
+    - `hasDemo`: Optional (default true). Whether the project has a demo. If true, the loader will insert a link to the main file.
 - `main`: The path to the main HTML file
 - `assets`: Array of IAsset (see below)
 

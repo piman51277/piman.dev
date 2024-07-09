@@ -25,6 +25,7 @@ export interface IManifestMeta {
   icon: string;
   tech: TechIcon[];
   links: IManifestLink[];
+  hasDemo?: boolean;
 }
 
 export interface IAsset {
@@ -64,6 +65,7 @@ const ManifestFileSchema = Joi.object({
           alt: Joi.string().required(),
         })
       ),
+    hasDemo: Joi.boolean().default(true),
   }),
   main: Joi.string().required(),
   assets: Joi.array().items(
