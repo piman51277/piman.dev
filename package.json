@@ -12,6 +12,7 @@
     "watch-webpack": "webpack --watch --config webpack.config.js",
     "watch-css": "postcss app/css/*.css --dir dist/client/css --watch",
     "watch-client": "concurrently npm:watch-webpack npm:watch-css",
+    "watch-server": "nodemon",
     "setup": "mkdir -p dist/client/css & mkdir -p dist/client/js",
     "start": "node dist/index.js"
   },
@@ -36,6 +37,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-jsdoc": "^48.5.2",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
+    "nodemon": "^3.1.4",
     "postcss": "^8.4.39",
     "postcss-calc": "^10.0.0",
     "postcss-cli": "^11.0.0",
