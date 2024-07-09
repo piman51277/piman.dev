@@ -1,5 +1,5 @@
 {% macro _el(alt,x,y) %}
-  <div alt="{{ alt }}" class="project-tech-icon" style="background-position: {{ x }}px {{ y }}px;"></div>
+  <div alt="{{ alt }}" class="project-tech-icon" style="background-position: -{{ x }}px {{ y }}px;"></div>
 {% endmacro %}
 {% macro render(list) %}
   <div class="project-tech-icon-box">
@@ -7,23 +7,23 @@
       {% if elem == "ts" %}
         {{ _el("TypeScript",0,0) }}
       {% elif elem == "webpack" %}
-        {{ _el("Webpack",64,0) }}
+        {{ _el("Webpack",32,0) }}
       {% elif elem == "arduino" %}
         {{ _el("arduino",64,0) }}
       {% elif elem == "figma" %}
-        {{ _el("Figma",128,0) }}
+        {{ _el("Figma",96,0) }}
       {% elif elem == "inkscape" %}
-        {{ _el("Inkscape",192,0) }}
+        {{ _el("Inkscape",128,0) }}
       {% elif elem == "js" %}
-        {{ _el("JavaScript",0,64) }}
+        {{ _el("JavaScript",0,32) }}
       {% elif elem == "postcss" %}
-        {{ _el("PostCSS",64,64) }}
+        {{ _el("PostCSS",32,32) }}
       {% elif elem == "cpp" %}
-        {{ _el("C++",64,64) }}
+        {{ _el("C++",64,32) }}
       {% elif elem == "sass" %}
-        {{ _el("SASS",128,64) }}
+        {{ _el("SASS",96,32) }}
       {% elif elem == "cuda" %}
-        {{ _el("CUDA",192,64) }}
+        {{ _el("CUDA",128,32) }}
       {% endif %}
     {% endfor %}
   </div>
