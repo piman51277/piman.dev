@@ -47,17 +47,6 @@ export function loadProject(manifest: IManifestFile, root: string): IManifest {
   };
   assetOrder.push(manifest.main);
 
-  //add all declared assets
-  for (const asset of manifest.assets) {
-    toParse.push(asset.src);
-    assets[asset.src] = {
-      preserveName: asset.preserveName || false,
-      replaceStr: asset.replaces ? [asset.replaces, asset.src] : [asset.src],
-      replaceIn: [],
-    };
-    assetOrder.push(asset.src);
-  }
-
   //parse all files
   while (toParse.length > 0) {
     const file: string = join(root, toParse.pop()!);
@@ -89,6 +78,26 @@ export function loadProject(manifest: IManifestFile, root: string): IManifest {
       }
     }
   }
+
+  //add all declared assets
+  for (const asset of manifest.assets) {
+    toParse.push(asset.src);
+    assets[asset.src] = {
+      preserveName: asset.preserveName || false,
+      replaceStr: asset.replaces ? [asset.replaces, asset.src] : [asset.src],
+      replaceIn: [],
+    };
+    assetOrder.push(asset.src);
+  }
+
+  //add icon
+  toParse.push(manifest.meta.icon);
+  assets[manifest.meta.icon] = {
+    preserveName: false,
+    replaceStr: [manifest.meta.icon],
+    replaceIn: [],
+  };
+  assetOrder.push(manifest.meta.icon);
 
   /** Load Assets */
 
@@ -139,6 +148,11 @@ function loadAsset(
   transforms: Record<string, IAssetUpdate>,
   preserveName = false
 ): string {
+  //check if the file even exists
+  if (!existsSync(path)) {
+    throw new Error(`Asset not found: ${path}`);
+  }
+
   const fileName = basename(path);
   const ext = fileName.split(".").pop();
 
