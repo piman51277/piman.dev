@@ -17,6 +17,11 @@ PORT=port
 NODE_ENV=development,production
 ```
 
+## Running
+```
+npm start
+```
+
 ## Adding Projects
 There are multiple options:
 1. Git submodule
