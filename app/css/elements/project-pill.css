@@ -15,7 +15,9 @@
     img {
       width: 200px;
       height: 200px;
-      display: none;
+      visibility: hidden;
+      user-select: none;
+      pointer-events: none;
     }
   }
 

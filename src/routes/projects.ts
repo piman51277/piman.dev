@@ -3,8 +3,10 @@ import { projects } from "./../projects/index";
 
 export const projectsRouter = Router();
 
-const kebabName = (name: string): string =>
-  name.replace(/ /g, "-").toLowerCase();
+const kebabName = (name: string): string => {
+  name = name.replace(/[^a-zA-Z0-9 ]/g, "");
+  return name.replace(/ /g, "-").toLowerCase();
+};
 
 const enabledProjects = structuredClone(projects).filter(
   (project) => project.meta.enabled
