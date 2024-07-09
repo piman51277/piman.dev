@@ -39,13 +39,15 @@ export function loadProject(manifest: IManifestFile, root: string): IManifest {
   const assetOrder: string[] = [];
 
   //add main html file
-  toParse.push(manifest.main);
-  assets[manifest.main] = {
-    preserveName: false,
-    replaceStr: [manifest.main],
-    replaceIn: [],
-  };
-  assetOrder.push(manifest.main);
+  if (manifest.meta.hasDemo) {
+    toParse.push(manifest.main);
+    assets[manifest.main] = {
+      preserveName: false,
+      replaceStr: [manifest.main],
+      replaceIn: [],
+    };
+    assetOrder.push(manifest.main);
+  }
 
   //parse all files
   while (toParse.length > 0) {
@@ -130,7 +132,9 @@ export function loadProject(manifest: IManifestFile, root: string): IManifest {
   manifestCopy.meta.icon = assets[manifest.meta.icon].newName as string;
 
   //get the file name of the main file
-  const mainName = (assets[manifest.main].newName as string).replace("/p/", "");
+  const mainName = manifest.meta.hasDemo
+    ? (assets[manifest.main].newName as string).replace("/p/", "")
+    : "";
   const mainPath = join(hostDir, mainName);
 
   return {
