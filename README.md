@@ -15,6 +15,7 @@ This is done with `.env`:
 ```envfile
 PORT=port
 NODE_ENV=development,production
+DOMAINS=domain1,domain2
 ```
 
 ## Running

@@ -3,6 +3,7 @@ import { basename, join } from "path";
 import { IManifest, IManifestFile } from "./manifest";
 import { canParseFile, getChildReferences } from "./getChildReferences";
 import { createHash } from "crypto";
+import { transformJS } from "./transformJS";
 
 interface IAssetUpdate {
   newName?: string; //new name of the asset
@@ -186,6 +187,11 @@ function loadAsset(
     data = readFileSync(path);
   }
 
+  //if ends in .js, transform it
+  if (ext === "js") {
+    data = transformJS(data.toString());
+  }
+
   //hash the file
   let hash = createHash("md5").update(data).digest("hex").slice(0, 12);
   let newName = preserveName ? fileName : `${hash}.${ext}`;
@@ -211,3 +217,4 @@ function loadAsset(
 
   return newPath;
 }
+
