@@ -3,6 +3,7 @@
 ## Prerequisites
 1. Refactor the project so the following are true:
     - All JS is bundled into one file (use Webpack)
+    - JS is bundled in an unminified format
     - All CSS is bundled into one file (use Postcss, Webpack)
     - All images are optimized and in WEBP or PNG format
     - There is one main HTML file that imports the CSS and JS files from root

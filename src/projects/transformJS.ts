@@ -5,6 +5,7 @@ const options: ObfuscatorOptions = {
   domainLockRedirectUrl: "https://piman.dev",
   identifierNamesGenerator: "mangled-shuffled",
   splitStrings: true,
+  transformObjectKeys: true,
 };
 
 /**
