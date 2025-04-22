@@ -82,13 +82,18 @@ export function loadProject(manifest: IManifestFile, root: string): IManifest {
     }
   }
 
+  //get all .js files
+  const jsFiles = assetOrder.filter((file) => file.endsWith(".js")).map((file) => {
+    return join(root, file);
+  });
+
   //add all declared assets
   for (const asset of manifest.assets) {
     toParse.push(asset.src);
     assets[asset.src] = {
       preserveName: asset.preserveName || false,
       replaceStr: asset.replaces ? [asset.replaces, asset.src] : [asset.src],
-      replaceIn: [],
+      replaceIn: [...jsFiles],
     };
     assetOrder.push(asset.src);
   }

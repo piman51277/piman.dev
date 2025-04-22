@@ -6,7 +6,7 @@ import { existsSync, readFileSync } from "fs";
  * @returns {boolean} Whether the file can be parsed
  */
 export function canParseFile(path: string): boolean {
-  return path.endsWith(".html") || path.endsWith(".css");
+  return path.endsWith(".html") || path.endsWith(".css") || path.endsWith(".js");
 }
 
 /**
@@ -67,6 +67,12 @@ function getChildReferencesHTML(html: string): string[] {
       for (const attr of HTMLSearchAttributes) {
         const value = element.getAttribute(attr);
         if (value) {
+
+          //toss if the name starts with a #, this is a fragment identifier
+          if (value.startsWith("#")) {
+            continue;
+          }
+
           children.push(value);
         }
       }
