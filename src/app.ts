@@ -16,21 +16,21 @@ nunjucks.configure("templates", {
 });
 
 const httpsOptions = {
-  key: readFileSync(`${process.env.KEY_PATH}/key.pem`),
+  key: readFileSync(`${process.env.KEY_PATH}/privkey.pem`),
   cert: readFileSync(`${process.env.KEY_PATH}/cert.pem`),
   ca: readFileSync(`${process.env.KEY_PATH}/chain.pem`),
 };
 
-if (process.env.NODE_ENV === "development") {
-  //http server for development
-  app.listen(parseInt(process.env.PORT!), () => {
-    console.log(`HTTP server running on port ${process.env.PORT}`);
-  });
-} else {
+if (process.env.NODE_ENV === "production" && process.env.KEY_PATH) {
   //https server for production
   https
     .createServer(httpsOptions, app)
     .listen(parseInt(process.env.PORT!), () => {
       console.log(`HTTPS server running on port ${process.env.PORT}`);
     });
+} else {
+  //default to http server
+  app.listen(parseInt(process.env.PORT!), () => {
+    console.log(`HTTP server running on port ${process.env.PORT}`);
+  });
 }
