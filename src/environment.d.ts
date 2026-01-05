@@ -1,4 +1,4 @@
-export {};
+export { };
 
 // set types of process.env
 declare global {
@@ -6,6 +6,7 @@ declare global {
     interface ProcessEnv {
       NODE_ENV: "development" | "production";
       PORT: string;
+      KEY_PATH: string;
       DOMAINS: string;
     }
   }
