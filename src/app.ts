@@ -15,14 +15,15 @@ nunjucks.configure("templates", {
   noCache: process.env.NODE_ENV === "development",
 });
 
-const httpsOptions = {
-  key: readFileSync(`${process.env.KEY_PATH}/privkey.pem`),
-  cert: readFileSync(`${process.env.KEY_PATH}/cert.pem`),
-  ca: readFileSync(`${process.env.KEY_PATH}/chain.pem`),
-};
+
 
 if (process.env.NODE_ENV === "production" && process.env.KEY_PATH) {
   //https server for production
+  const httpsOptions = {
+    key: readFileSync(`${process.env.KEY_PATH}/privkey.pem`),
+    cert: readFileSync(`${process.env.KEY_PATH}/cert.pem`),
+    ca: readFileSync(`${process.env.KEY_PATH}/chain.pem`),
+  };
   https
     .createServer(httpsOptions, app)
     .listen(parseInt(process.env.PORT!), () => {
